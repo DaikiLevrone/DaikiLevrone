@@ -1,0 +1,110 @@
+{
+  "profile": {
+    "owner": "DaikiLevrone",
+    "updatedAt": "2026-07-28",
+    "selectionCriteria": [
+      "public repository",
+      "not a fork",
+      "not empty",
+      "shows meaningful implementation work",
+      "no unverified demo links"
+    ]
+  },
+  "projects": [
+    {
+      "name": "SistemaGuiasBoletas",
+      "repo": "DaikiLevrone/SistemaGuiasBoletas",
+      "repoUrl": "https://github.com/DaikiLevrone/SistemaGuiasBoletas",
+      "demoUrl": null,
+      "demoVerified": false,
+      "demoNote": "No public deployment or GitHub Pages site was verified.",
+      "category": "Desktop automation",
+      "summary": "Windows desktop system that converts business TXT files into professional PDF guides and payslips, keeps local history, manages workers, sends SMTP email and opens WhatsApp Web handoff links.",
+      "impact": "Turns a manual document workflow into a structured local app with PDF generation, SQLite persistence, installer packaging and release-update support.",
+      "stack": [
+        "C#",
+        "Windows Forms",
+        ".NET Framework 4.8",
+        "SQLite",
+        "Crystal Reports",
+        "SMTP",
+        "Inno Setup",
+        "PowerShell"
+      ],
+      "lastPushedAt": "2026-05-16T05:08:41Z",
+      "stars": 0,
+      "forks": 0,
+      "primaryLanguage": "C#"
+    },
+    {
+      "name": "Enkarga",
+      "repo": "DaikiLevrone/Enkarga",
+      "repoUrl": "https://github.com/DaikiLevrone/Enkarga",
+      "demoUrl": null,
+      "demoVerified": false,
+      "demoNote": "No public deployment or GitHub Pages site was verified.",
+      "category": "Business web portal",
+      "summary": "Operational web portal for a courier company, connecting customers, staff, transport, guide tracking, invoicing, deposits and accounting modules.",
+      "impact": "Shows end-to-end CRUD modules across operations and finance, with backend controllers, database scripts and a full web interface.",
+      "stack": [
+        "PHP",
+        "JavaScript",
+        "HTML",
+        "CSS",
+        "SQL",
+        "Bootstrap",
+        "Dompdf"
+      ],
+      "lastPushedAt": "2025-10-01T20:25:51Z",
+      "stars": 0,
+      "forks": 0,
+      "primaryLanguage": "JavaScript"
+    },
+    {
+      "name": "TRABAJO-FINAL-BPA",
+      "repo": "DaikiLevrone/TRABAJO-FINAL-BPA",
+      "repoUrl": "https://github.com/DaikiLevrone/TRABAJO-FINAL-BPA",
+      "demoUrl": null,
+      "demoVerified": false,
+      "demoNote": "No public deployment or GitHub Pages site was verified.",
+      "category": "Data and ML app",
+      "summary": "Streamlit app that forecasts hotel occupancy in Peru by department and turns model output into travel-planning recommendations.",
+      "impact": "Combines data preparation, a trained Random Forest model, user-facing filters, metrics and tourism context into an analytical decision tool.",
+      "stack": [
+        "Python",
+        "Streamlit",
+        "Pandas",
+        "NumPy",
+        "Scikit-learn model",
+        "Pickle"
+      ],
+      "lastPushedAt": "2025-11-30T04:41:42Z",
+      "stars": 0,
+      "forks": 0,
+      "primaryLanguage": "Python"
+    },
+    {
+      "name": "Fitfat-Site-Web",
+      "repo": "DaikiLevrone/Fitfat-Site-Web",
+      "repoUrl": "https://github.com/DaikiLevrone/Fitfat-Site-Web",
+      "demoUrl": null,
+      "demoVerified": false,
+      "demoNote": "No public deployment or GitHub Pages site was verified.",
+      "category": "Health and fitness web",
+      "summary": "Responsive fitness and nutrition website with registration, plan pages, password recovery flow, PHPMailer integration and structured content for food and training routines.",
+      "impact": "Demonstrates front-end delivery, PHP form handling, email flows and mobile-specific page variants for a content-rich consumer site.",
+      "stack": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "PHP",
+        "PHPMailer",
+        "Responsive UI"
+      ],
+      "lastPushedAt": "2023-11-21T06:22:49Z",
+      "stars": 0,
+      "forks": 1,
+      "primaryLanguage": "HTML"
+    }
+  ]
+}

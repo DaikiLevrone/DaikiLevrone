@@ -1,0 +1,60 @@
+<svg width="1180" height="650" viewBox="0 0 1180 650" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Featured projects by Fabricio Prado</title>
+  <desc id="desc">Four selected public repositories with real technical scope and no unverified demo links.</desc>
+  <style>
+    .title { font-family: Consolas, "Liberation Mono", Menlo, monospace; font-size: 30px; font-weight: 700; fill: #0B1F16; }
+    .subtitle { font-family: Consolas, "Liberation Mono", Menlo, monospace; font-size: 14px; fill: #4B5563; }
+    .name { font-family: Consolas, "Liberation Mono", Menlo, monospace; font-size: 19px; font-weight: 700; fill: #0B1F16; }
+    .category { font-family: Consolas, "Liberation Mono", Menlo, monospace; font-size: 12px; fill: #047857; }
+    .body { font-family: Consolas, "Liberation Mono", Menlo, monospace; font-size: 13px; fill: #4B5563; }
+    .chip { font-family: Consolas, "Liberation Mono", Menlo, monospace; font-size: 11px; fill: #059669; }
+    .link { font-family: Consolas, "Liberation Mono", Menlo, monospace; font-size: 11px; fill: #059669; }
+    .note { font-family: Consolas, "Liberation Mono", Menlo, monospace; font-size: 11px; fill: #4B5563; }
+  </style>
+  <rect width="1180" height="650" fill="#F8FAFC" />
+  <text x="54" y="64" class="title">selected.systems</text>
+  <text x="54" y="93" class="subtitle">Real public repositories filtered with GitHub CLI. No empty repos, no forks, no invented demos.</text>
+  <rect x="930" y="44" width="196" height="34" rx="17" fill="#D1FAE5" stroke="#A7F3D0" />
+  <text x="952" y="66" class="subtitle">DaikiLevrone/projects</text>
+  
+  <g>
+    <rect x="54" y="122" width="514" height="206" rx="8" fill="#FFFFFF" stroke="#A7F3D0" />
+    <rect x="54" y="122" width="514" height="54" rx="8" fill="#ECFDF5" />
+    <text x="78" y="155" class="name">SistemaGuiasBoletas</text>
+    <text x="398" y="155" class="category">Desktop automation</text>
+    <text x="78" y="204" class="body">Windows desktop system that converts business TXT files into</text><text x="78" y="223" class="body">professional PDF guides and payslips, keeps local history,</text><text x="78" y="242" class="body">manages workers, sends SMTP email and opens WhatsApp Web handoff</text><text x="78" y="261" class="body">links.</text>
+    <rect x="78" y="276" width="54" height="25" rx="12" fill="#D1FAE5" stroke="#A7F3D0" /><text x="89" y="293" class="chip">C#</text><rect x="140" y="276" width="124" height="25" rx="12" fill="#D1FAE5" stroke="#A7F3D0" /><text x="151" y="293" class="chip">Windows Forms</text><rect x="272" y="276" width="124" height="25" rx="12" fill="#D1FAE5" stroke="#A7F3D0" /><text x="283" y="293" class="chip">.NET Framework 4.8</text><rect x="404" y="276" width="88" height="25" rx="12" fill="#D1FAE5" stroke="#A7F3D0" /><text x="415" y="293" class="chip">SQLite</text><rect x="500" y="276" width="124" height="25" rx="12" fill="#D1FAE5" stroke="#A7F3D0" /><text x="511" y="293" class="chip">Crystal Reports</text>
+    <text x="78" y="316" class="link">github.com/DaikiLevrone/SistemaGuiasBoletas</text>
+    <text x="362" y="316" class="note">Demo: not public</text>
+  </g>
+  <g>
+    <rect x="602" y="122" width="514" height="206" rx="8" fill="#FFFFFF" stroke="#A7F3D0" />
+    <rect x="602" y="122" width="514" height="54" rx="8" fill="#ECFDF5" />
+    <text x="626" y="155" class="name">Enkarga</text>
+    <text x="946" y="155" class="category">Business web portal</text>
+    <text x="626" y="204" class="body">Operational web portal for a courier company, connecting</text><text x="626" y="223" class="body">customers, staff, transport, guide tracking, invoicing, deposits</text><text x="626" y="242" class="body">and accounting modules.</text>
+    <rect x="626" y="276" width="55" height="25" rx="12" fill="#D1FAE5" stroke="#A7F3D0" /><text x="637" y="293" class="chip">PHP</text><rect x="689" y="276" width="124" height="25" rx="12" fill="#D1FAE5" stroke="#A7F3D0" /><text x="700" y="293" class="chip">JavaScript</text><rect x="821" y="276" width="66" height="25" rx="12" fill="#D1FAE5" stroke="#A7F3D0" /><text x="832" y="293" class="chip">HTML</text><rect x="895" y="276" width="55" height="25" rx="12" fill="#D1FAE5" stroke="#A7F3D0" /><text x="906" y="293" class="chip">CSS</text><rect x="958" y="276" width="55" height="25" rx="12" fill="#D1FAE5" stroke="#A7F3D0" /><text x="969" y="293" class="chip">SQL</text>
+    <text x="626" y="316" class="link">github.com/DaikiLevrone/Enkarga</text>
+    <text x="910" y="316" class="note">Demo: not public</text>
+  </g>
+  <g>
+    <rect x="54" y="358" width="514" height="206" rx="8" fill="#FFFFFF" stroke="#A7F3D0" />
+    <rect x="54" y="358" width="514" height="54" rx="8" fill="#ECFDF5" />
+    <text x="78" y="391" class="name">TRABAJO-FINAL-BPA</text>
+    <text x="398" y="391" class="category">Data and ML app</text>
+    <text x="78" y="440" class="body">Streamlit app that forecasts hotel occupancy in Peru by</text><text x="78" y="459" class="body">department and turns model output into travel-planning</text><text x="78" y="478" class="body">recommendations.</text>
+    <rect x="78" y="512" width="88" height="25" rx="12" fill="#D1FAE5" stroke="#A7F3D0" /><text x="89" y="529" class="chip">Python</text><rect x="174" y="512" width="121" height="25" rx="12" fill="#D1FAE5" stroke="#A7F3D0" /><text x="185" y="529" class="chip">Streamlit</text><rect x="303" y="512" width="88" height="25" rx="12" fill="#D1FAE5" stroke="#A7F3D0" /><text x="314" y="529" class="chip">Pandas</text><rect x="399" y="512" width="77" height="25" rx="12" fill="#D1FAE5" stroke="#A7F3D0" /><text x="410" y="529" class="chip">NumPy</text><rect x="484" y="512" width="124" height="25" rx="12" fill="#D1FAE5" stroke="#A7F3D0" /><text x="495" y="529" class="chip">Scikit-learn model</text>
+    <text x="78" y="552" class="link">github.com/DaikiLevrone/TRABAJO-FINAL-BPA</text>
+    <text x="362" y="552" class="note">Demo: not public</text>
+  </g>
+  <g>
+    <rect x="602" y="358" width="514" height="206" rx="8" fill="#FFFFFF" stroke="#A7F3D0" />
+    <rect x="602" y="358" width="514" height="54" rx="8" fill="#ECFDF5" />
+    <text x="626" y="391" class="name">Fitfat-Site-Web</text>
+    <text x="946" y="391" class="category">Health and fitness web</text>
+    <text x="626" y="440" class="body">Responsive fitness and nutrition website with registration, plan</text><text x="626" y="459" class="body">pages, password recovery flow, PHPMailer integration and</text><text x="626" y="478" class="body">structured content for food and training routines.</text>
+    <rect x="626" y="512" width="66" height="25" rx="12" fill="#D1FAE5" stroke="#A7F3D0" /><text x="637" y="529" class="chip">HTML</text><rect x="700" y="512" width="55" height="25" rx="12" fill="#D1FAE5" stroke="#A7F3D0" /><text x="711" y="529" class="chip">CSS</text><rect x="763" y="512" width="124" height="25" rx="12" fill="#D1FAE5" stroke="#A7F3D0" /><text x="774" y="529" class="chip">JavaScript</text><rect x="895" y="512" width="55" height="25" rx="12" fill="#D1FAE5" stroke="#A7F3D0" /><text x="906" y="529" class="chip">PHP</text><rect x="958" y="512" width="121" height="25" rx="12" fill="#D1FAE5" stroke="#A7F3D0" /><text x="969" y="529" class="chip">PHPMailer</text>
+    <text x="626" y="552" class="link">github.com/DaikiLevrone/Fitfat-Site-Web</text>
+    <text x="910" y="552" class="note">Demo: not public</text>
+  </g>
+</svg>
