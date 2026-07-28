@@ -40,6 +40,8 @@ python scripts/generate_profile_sections.py
 python scripts/build_previews.py
 ```
 
+`scripts/generate_profile_sections.py` creates the stats, technology, streak, badges and the high-contrast README snake panel. The workflow snake in the `output` branch is still regenerated for compatibility, but the visible README snake uses the local `assets/snake-*.svg` files.
+
 Refresh project metadata:
 
 ```powershell

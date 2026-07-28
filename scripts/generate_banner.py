@@ -221,11 +221,11 @@ def defs(theme: dict, uid: str) -> str:
 def render_desktop(theme_name: str, photo: Path | None) -> str:
     theme = THEMES[theme_name]
     uid = f"banner-{theme_name}"
-    points = photo_points(photo, 248, theme_name) if photo else placeholder_points(248)
+    points = photo_points(photo, 256, theme_name) if photo else placeholder_points(256)
     skills = ["React", "TypeScript", "Python", "SQL", "Power BI", "C#/.NET", "PHP"]
     chips = []
     chip_x = 58
-    chip_y = 470
+    chip_y = 552
     for skill in skills:
         width = 44 + len(skill) * 11
         chips.append(
@@ -240,34 +240,34 @@ def render_desktop(theme_name: str, photo: Path | None) -> str:
         ("Frontend", "React, Vite, TypeScript and motion systems"),
         ("Automation", "Python scripts, workflow design and process tooling"),
         ("Systems", "C#/.NET, PHP, SQL and operational applications"),
-        ("Data", "Power BI, PostgreSQL and analytics"),
+        ("Data", "Power BI and PostgreSQL"),
     ]
     row_svg = []
-    y = 264
+    y = 292
     for label, text in rows:
         row_svg.append(f'<text x="64" y="{y}" class="row-label">{esc(label)}</text>')
-        for line in wrap_text(text, 36)[:2]:
-            row_svg.append(f'<text x="192" y="{y}" class="row-text">{esc(line)}</text>')
-            y += 26
-        y += 12
+        for line in wrap_text(text, 32)[:2]:
+            row_svg.append(f'<text x="226" y="{y}" class="row-text">{esc(line)}</text>')
+            y += 31
+        y += 14
 
-    return f'''<svg width="980" height="560" viewBox="0 0 980 560" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+    return f'''<svg width="980" height="640" viewBox="0 0 980 640" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
   <title id="title">Fabricio Prado - animated GitHub profile banner</title>
   <desc id="desc">Responsive animated terminal banner for Fabricio Prado, GitHub user DaikiLevrone, using lavender and violet colors.</desc>
   <style>
     .mono {{ font-family: Consolas, "Liberation Mono", Menlo, monospace; }}
-    .name {{ font-family: Inter, Segoe UI, Arial, sans-serif; font-size: 52px; font-weight: 800; fill: {theme['text']}; letter-spacing: 0; }}
-    .handle {{ font-family: Consolas, "Liberation Mono", Menlo, monospace; font-size: 22px; fill: {theme['muted']}; }}
-    .kicker {{ font-family: Consolas, "Liberation Mono", Menlo, monospace; font-size: 19px; fill: {theme['accent2']}; }}
-    .row-label {{ font-family: Consolas, "Liberation Mono", Menlo, monospace; font-size: 21px; font-weight: 700; fill: {theme['accent']}; }}
-    .row-text {{ font-family: Consolas, "Liberation Mono", Menlo, monospace; font-size: 19px; fill: {theme['text']}; }}
-    .chip {{ font-family: Consolas, "Liberation Mono", Menlo, monospace; font-size: 16px; fill: {theme['text']}; }}
-    .tiny {{ font-family: Consolas, "Liberation Mono", Menlo, monospace; font-size: 15px; fill: {theme['muted']}; }}
+    .name {{ font-family: Inter, Segoe UI, Arial, sans-serif; font-size: 60px; font-weight: 850; fill: {theme['text']}; letter-spacing: 0; }}
+    .handle {{ font-family: Consolas, "Liberation Mono", Menlo, monospace; font-size: 25px; fill: {theme['muted']}; }}
+    .kicker {{ font-family: Consolas, "Liberation Mono", Menlo, monospace; font-size: 21px; fill: {theme['accent2']}; }}
+    .row-label {{ font-family: Consolas, "Liberation Mono", Menlo, monospace; font-size: 23px; font-weight: 700; fill: {theme['accent']}; }}
+    .row-text {{ font-family: Consolas, "Liberation Mono", Menlo, monospace; font-size: 21px; fill: {theme['text']}; }}
+    .chip {{ font-family: Consolas, "Liberation Mono", Menlo, monospace; font-size: 17px; fill: {theme['text']}; }}
+    .tiny {{ font-family: Consolas, "Liberation Mono", Menlo, monospace; font-size: 16px; fill: {theme['muted']}; }}
   </style>
   {defs(theme, uid)}
-  <rect width="980" height="560" rx="0" fill="{theme['bg']}" />
-  <rect x="18" y="18" width="944" height="524" rx="28" fill="url(#{uid}-wash)" filter="url(#{uid}-soft-shadow)" />
-  <rect x="26" y="28" width="928" height="504" rx="24" fill="{theme['panel']}" stroke="{theme['line']}" stroke-width="2" />
+  <rect width="980" height="640" rx="0" fill="{theme['bg']}" />
+  <rect x="18" y="18" width="944" height="604" rx="30" fill="url(#{uid}-wash)" filter="url(#{uid}-soft-shadow)" />
+  <rect x="26" y="28" width="928" height="584" rx="26" fill="{theme['panel']}" stroke="{theme['line']}" stroke-width="2" />
   <rect x="26" y="28" width="928" height="62" rx="24" fill="{theme['panel2']}" />
   <rect x="26" y="70" width="928" height="20" fill="{theme['panel2']}" />
   <circle cx="62" cy="59" r="8" fill="{PALETTE['deep']}" />
@@ -280,24 +280,24 @@ def render_desktop(theme_name: str, photo: Path | None) -> str:
   </circle>
   <text x="810" y="65" class="tiny">available</text>
 
-  <text x="58" y="157" class="kicker">FULL-STACK / AUTOMATION / DATA SYSTEMS</text>
-  <text x="58" y="216" class="name">Fabricio Prado</text>
-  <text x="60" y="248" class="handle">@DaikiLevrone - Lima, Peru - UPC</text>
+  <text x="58" y="164" class="kicker">FULL-STACK / AUTOMATION / DATA SYSTEMS</text>
+  <text x="58" y="232" class="name">Fabricio Prado</text>
+  <text x="60" y="268" class="handle">@DaikiLevrone - Lima, Peru - UPC</text>
   {''.join(row_svg)}
   {''.join(chips)}
 
   <g>
-    <circle cx="800" cy="302" r="150" fill="{theme['bg']}" opacity="0.42" stroke="url(#{uid}-line)" stroke-width="3">
+    <circle cx="800" cy="338" r="158" fill="{theme['bg']}" opacity="0.42" stroke="url(#{uid}-line)" stroke-width="3">
       <animate attributeName="stroke-width" values="2;5;2" dur="6s" repeatCount="indefinite" />
     </circle>
-    <circle cx="800" cy="302" r="123" fill="{theme['panel2']}" opacity="0.72" />
-    <path d="M650 302a150 150 0 1 0 300 0a150 150 0 1 0 -300 0" stroke="{theme['accent2']}" stroke-width="2" stroke-dasharray="16 18" opacity="0.72">
-      <animateTransform attributeName="transform" type="rotate" from="0 800 302" to="360 800 302" dur="24s" repeatCount="indefinite" />
+    <circle cx="800" cy="338" r="128" fill="{theme['panel2']}" opacity="0.72" />
+    <path d="M642 338a158 158 0 1 0 316 0a158 158 0 1 0 -316 0" stroke="{theme['accent2']}" stroke-width="2" stroke-dasharray="16 18" opacity="0.72">
+      <animateTransform attributeName="transform" type="rotate" from="0 800 338" to="360 800 338" dur="24s" repeatCount="indefinite" />
     </path>
-    {dot_groups(points, 676, 178, 3.1)}
-    <text x="704" y="476" class="tiny">animated point portrait</text>
+    {dot_groups(points, 672, 210, 3.2)}
+    <text x="704" y="530" class="tiny">animated point portrait</text>
   </g>
-  <rect x="58" y="520" width="304" height="4" rx="2" fill="url(#{uid}-line)">
+  <rect x="58" y="604" width="304" height="5" rx="2.5" fill="url(#{uid}-line)">
     <animate attributeName="width" values="160;304;228;304" dur="7s" repeatCount="indefinite" />
   </rect>
 </svg>
@@ -361,14 +361,14 @@ def draw_preview(theme_name: str, photo: Path | None, out: Path, mobile: bool = 
     if Image is None:
         return
     theme = THEMES[theme_name]
-    w, h = (430, 730) if mobile else (980, 560)
+    w, h = (430, 730) if mobile else (980, 640)
     img = Image.new("RGB", (w, h), theme["bg"])
     draw = ImageDraw.Draw(img)
     draw.rounded_rectangle((18, 18, w - 18, h - 22), radius=24, fill=theme["panel"], outline=theme["line"], width=2)
     title = "Fabricio Prado" if not mobile else "Fabricio\nPrado"
     draw.multiline_text((30, 120 if mobile else 150), title, fill=theme["text"], spacing=8)
     dot_size = 178 if mobile else 248
-    px, py = (127, 279) if mobile else (676, 178)
+    px, py = (127, 279) if mobile else (672, 210)
     for x, y, opacity in (photo_points(photo, dot_size, theme_name) if photo else placeholder_points(dot_size)):
         color = theme["accent2"] if opacity > 0.64 else theme["accent"]
         draw.rectangle((px + x, py + y, px + x + (2 if mobile else 3), py + y + (2 if mobile else 3)), fill=color)

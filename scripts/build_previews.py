@@ -62,8 +62,10 @@ HTML = """<!doctype html>
     </div>
     <div class="block">
       <picture>
-        <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/DaikiLevrone/DaikiLevrone/output/github-snake-dark.svg" />
-        <img src="https://raw.githubusercontent.com/DaikiLevrone/DaikiLevrone/output/github-snake.svg" alt="Contribution snake" />
+        <source media="(max-width: 640px) and (prefers-color-scheme: dark)" srcset="../assets/snake-dark-mobile.svg" />
+        <source media="(max-width: 640px)" srcset="../assets/snake-light-mobile.svg" />
+        <source media="(prefers-color-scheme: dark)" srcset="../assets/snake-dark.svg" />
+        <img src="../assets/snake-light.svg" alt="High contrast contribution snake" />
       </picture>
     </div>
     <div class="block">
@@ -91,20 +93,20 @@ def compose() -> None:
     dark = Image.open(PREVIEWS / "banner-dark.png").convert("RGB")
     metrics = Image.open(PREVIEWS / "metrics-tech-dark.png").convert("RGB")
     projects = Image.open(PREVIEWS / "projects-dark.png").convert("RGB")
-    desktop = Image.new("RGB", (1220, 2200), "#110927")
-    tablet = Image.new("RGB", (820, 2200), "#110927")
-    mobile = Image.new("RGB", (430, 3300), "#110927")
+    desktop = Image.new("RGB", (1220, 2700), "#110927")
+    tablet = Image.new("RGB", (820, 2700), "#110927")
+    mobile = Image.new("RGB", (430, 4100), "#110927")
 
     draw = ImageDraw.Draw(desktop)
     draw.text((70, 36), "Desktop preview / README flow", fill="#E7DFF7")
-    desktop.paste(dark.resize((1080, 617)), (70, 78))
-    desktop.paste(metrics.resize((1080, 771)), (70, 730))
-    desktop.paste(projects.resize((1080, 849)), (70, 1545))
+    desktop.paste(dark.resize((1080, 706)), (70, 78))
+    desktop.paste(metrics.resize((1080, 926)), (70, 820))
+    desktop.paste(projects.resize((1080, 1014)), (70, 1880))
     desktop.save(PREVIEWS / "profile-desktop.png")
 
-    tablet.paste(dark.resize((780, 446)), (20, 28))
-    tablet.paste(metrics.resize((780, 557)), (20, 502))
-    tablet.paste(projects.resize((780, 613)), (20, 1092))
+    tablet.paste(dark.resize((780, 510)), (20, 28))
+    tablet.paste(metrics.resize((780, 669)), (20, 568))
+    tablet.paste(projects.resize((780, 733)), (20, 1390))
     tablet.save(PREVIEWS / "profile-tablet.png")
 
     mobile_banner = Image.open(PREVIEWS / "banner-dark-mobile.png").convert("RGB")
@@ -112,7 +114,7 @@ def compose() -> None:
     mobile_projects = Image.open(PREVIEWS / "projects-dark-mobile.png").convert("RGB")
     mobile.paste(mobile_banner.resize((398, 676)), (16, 22))
     mobile.paste(mobile_metrics.resize((398, 981)), (16, 722))
-    mobile.paste(mobile_projects.resize((398, 1342)), (16, 1726))
+    mobile.paste(mobile_projects.resize((398, 1545)), (16, 2100))
     mobile.save(PREVIEWS / "profile-mobile.png")
 
 

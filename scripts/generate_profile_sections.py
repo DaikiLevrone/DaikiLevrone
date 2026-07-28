@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import html
 import json
+import random
 from pathlib import Path
 
 try:
@@ -107,27 +108,35 @@ def defs(theme: dict, uid: str) -> str:
 
 
 def metric_card(x: int, y: int, width: int, label: str, value: str, note: str, theme: dict, uid: str, idx: int) -> str:
+    tall = width > 190
+    height = 142 if tall else 124
+    label_y = y + (39 if tall else 34)
+    value_y = y + (94 if tall else 82)
+    note_x = x + (142 if tall else 108)
+    bar_y = y + (116 if tall else 99)
     bar_width = min(width - 40, 66 + len(value) * 11)
     return f'''
     <g filter="url(#{uid}-shadow)">
-      <rect x="{x}" y="{y}" width="{width}" height="122" rx="18" fill="{theme["card"]}" stroke="{theme["line"]}" stroke-opacity="0.64" />
-      <text x="{x + 22}" y="{y + 36}" class="metric-label">{esc(label)}</text>
-      <text x="{x + 22}" y="{y + 82}" class="metric-value">{esc(value)}</text>
-      <text x="{x + 118}" y="{y + 82}" class="metric-note">{esc(note)}</text>
-      <rect x="{x + 22}" y="{y + 99}" width="{bar_width}" height="5" rx="2.5" fill="url(#{uid}-bar)">
+      <rect x="{x}" y="{y}" width="{width}" height="{height}" rx="20" fill="{theme["card"]}" stroke="{theme["line"]}" stroke-opacity="0.72">
+        <animate attributeName="stroke-opacity" values="0.46;0.9;0.46" dur="{6 + idx * 0.25:.2f}s" repeatCount="indefinite" />
+      </rect>
+      <text x="{x + 24}" y="{label_y}" class="metric-label">{esc(label)}</text>
+      <text x="{x + 24}" y="{value_y}" class="metric-value">{esc(value)}</text>
+      <text x="{note_x}" y="{value_y}" class="metric-note">{esc(note)}</text>
+      <rect x="{x + 24}" y="{bar_y}" width="{bar_width}" height="{6 if tall else 5}" rx="3" fill="url(#{uid}-bar)">
         <animate attributeName="width" values="{max(36, bar_width - 54)};{bar_width};{max(48, bar_width - 20)};{bar_width}" dur="{6.5 + idx * 0.3:.1f}s" repeatCount="indefinite" />
       </rect>
     </g>'''
 
 
 def tech_chip(x: int, y: int, label: str, theme: dict, idx: int, small: bool = False) -> tuple[str, int]:
-    width = max(78 if small else 94, min(190, (34 if small else 42) + len(label) * (8 if small else 10)))
+    width = max(82 if small else 104, min(210, (38 if small else 50) + len(label) * (8 if small else 10)))
     klass = "tech-small" if small else "tech"
     svg = (
-        f'<rect x="{x}" y="{y}" width="{width}" height="{30 if small else 36}" rx="{15 if small else 18}" '
+        f'<rect x="{x}" y="{y}" width="{width}" height="{32 if small else 40}" rx="{16 if small else 20}" '
         f'fill="{theme["chip"]}" stroke="{theme["line"]}" stroke-opacity="0.68">'
         f'<animate attributeName="stroke-opacity" values="0.38;0.95;0.38" dur="{5.5 + idx * 0.11:.2f}s" repeatCount="indefinite" />'
-        f'</rect><text x="{x + (15 if small else 19)}" y="{y + (20 if small else 24)}" class="{klass}">{esc(label)}</text>'
+        f'</rect><text x="{x + (16 if small else 21)}" y="{y + (21 if small else 26)}" class="{klass}">{esc(label)}</text>'
     )
     return svg, width
 
@@ -137,49 +146,52 @@ def render_metrics_desktop(theme_name: str, data: dict) -> str:
     uid = f"metrics-{theme_name}"
     stats = stats_from_data(data)
     metric_svg = [
-        metric_card(42, 138, 202, "Public repos", str(stats["repos"]), "active", theme, uid, 0),
-        metric_card(264, 138, 202, "Contributions", str(stats["contributions"]), "calendar", theme, uid, 1),
-        metric_card(42, 282, 202, "Commits", str(stats["commits"]), "tracked", theme, uid, 2),
-        metric_card(264, 282, 202, "Featured", str(stats["featured"]), "systems", theme, uid, 3),
+        metric_card(44, 156, 224, "Public repos", str(stats["repos"]), "active", theme, uid, 0),
+        metric_card(292, 156, 224, "Contributions", str(stats["contributions"]), "calendar", theme, uid, 1),
+        metric_card(44, 326, 224, "Commits", str(stats["commits"]), "tracked", theme, uid, 2),
+        metric_card(292, 326, 224, "Featured", str(stats["featured"]), "systems", theme, uid, 3),
     ]
     tech_svg = []
-    y = 166
+    y = 170
     chip_index = 0
     for title, chips in TECH_GROUPS:
-        tech_svg.append(f'<text x="536" y="{y}" class="group">{esc(title)}</text>')
-        x = 536
-        y += 24
+        tech_svg.append(f'<text x="566" y="{y}" class="group">{esc(title)}</text>')
+        x = 566
+        y += 30
         for tech in chips:
             chip, width = tech_chip(x, y, tech, theme, chip_index)
-            if x + width > 936:
-                x = 536
-                y += 44
+            if x + width > 934:
+                x = 566
+                y += 50
                 chip, width = tech_chip(x, y, tech, theme, chip_index)
             tech_svg.append(chip)
-            x += width + 9
+            x += width + 11
             chip_index += 1
-        y += 54
+        y += 64
 
-    return f'''<svg width="980" height="700" viewBox="0 0 980 700" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+    return f'''<svg width="980" height="840" viewBox="0 0 980 840" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
   <title id="title">GitHub stats and professional technology stack for Fabricio Prado</title>
   <desc id="desc">A two column visual panel with public GitHub metrics and technologies used by Fabricio Prado, excluding auxiliary generated languages.</desc>
   <style>
-    .title {{ font-family: Inter, Segoe UI, Arial, sans-serif; font-size: 38px; font-weight: 800; fill: {theme['text']}; letter-spacing: 0; }}
-    .subtitle {{ font-family: Consolas, "Liberation Mono", Menlo, monospace; font-size: 16px; fill: {theme['muted']}; }}
-    .section {{ font-family: Inter, Segoe UI, Arial, sans-serif; font-size: 24px; font-weight: 800; fill: {theme['text']}; letter-spacing: 0; }}
-    .metric-label {{ font-family: Consolas, "Liberation Mono", Menlo, monospace; font-size: 15px; fill: {theme['muted']}; }}
-    .metric-value {{ font-family: Inter, Segoe UI, Arial, sans-serif; font-size: 42px; font-weight: 900; fill: {theme['text']}; letter-spacing: 0; }}
-    .metric-note {{ font-family: Consolas, "Liberation Mono", Menlo, monospace; font-size: 14px; fill: {theme['accent2']}; }}
-    .group {{ font-family: Consolas, "Liberation Mono", Menlo, monospace; font-size: 17px; font-weight: 700; fill: {theme['accent2']}; }}
-    .tech {{ font-family: Consolas, "Liberation Mono", Menlo, monospace; font-size: 15px; fill: {theme['text']}; }}
+    .title {{ font-family: Inter, Segoe UI, Arial, sans-serif; font-size: 44px; font-weight: 850; fill: {theme['text']}; letter-spacing: 0; }}
+    .subtitle {{ font-family: Consolas, "Liberation Mono", Menlo, monospace; font-size: 18px; fill: {theme['muted']}; }}
+    .section {{ font-family: Inter, Segoe UI, Arial, sans-serif; font-size: 29px; font-weight: 850; fill: {theme['text']}; letter-spacing: 0; }}
+    .metric-label {{ font-family: Consolas, "Liberation Mono", Menlo, monospace; font-size: 17px; fill: {theme['muted']}; }}
+    .metric-value {{ font-family: Inter, Segoe UI, Arial, sans-serif; font-size: 54px; font-weight: 900; fill: {theme['text']}; letter-spacing: 0; }}
+    .metric-note {{ font-family: Consolas, "Liberation Mono", Menlo, monospace; font-size: 15px; fill: {theme['accent2']}; }}
+    .group {{ font-family: Consolas, "Liberation Mono", Menlo, monospace; font-size: 19px; font-weight: 700; fill: {theme['accent2']}; }}
+    .tech {{ font-family: Consolas, "Liberation Mono", Menlo, monospace; font-size: 16px; fill: {theme['text']}; }}
   </style>
   {defs(theme, uid)}
-  <rect width="980" height="700" fill="{theme['bg']}" />
-  <rect x="18" y="18" width="944" height="664" rx="28" fill="url(#{uid}-bg)" stroke="{theme['line']}" stroke-opacity="0.58" />
-  <text x="42" y="68" class="title">operating.stack</text>
-  <text x="42" y="101" class="subtitle">Stats and real technologies, with auxiliary language noise removed.</text>
-  <text x="42" y="130" class="section">GitHub pulse</text>
-  <text x="536" y="130" class="section">Technologies</text>
+  <rect width="980" height="840" fill="{theme['bg']}" />
+  <rect x="18" y="18" width="944" height="804" rx="30" fill="url(#{uid}-bg)" stroke="{theme['line']}" stroke-opacity="0.62" />
+  <path d="M70 794H410" stroke="url(#{uid}-bar)" stroke-width="5" stroke-linecap="round">
+    <animate attributeName="stroke-dasharray" values="80 280;210 150;80 280" dur="9s" repeatCount="indefinite" />
+  </path>
+  <text x="44" y="75" class="title">operating.stack</text>
+  <text x="44" y="112" class="subtitle">Readable stats and real technologies, with generated language noise removed.</text>
+  <text x="44" y="144" class="section">GitHub pulse</text>
+  <text x="566" y="144" class="section">Technologies</text>
   {''.join(metric_svg)}
   {''.join(tech_svg)}
 </svg>
@@ -285,6 +297,100 @@ def render_streak(theme_name: str, data: dict, mobile: bool = False) -> str:
 '''
 
 
+def snake_grid(cols: int, rows: int, x: int, y: int, pitch: int, dot: int, theme: dict, uid: str) -> str:
+    random.seed(128 + cols + rows)
+    active = {
+        (8, 2),
+        (9, 2),
+        (10, 2),
+        (11, 3),
+        (12, 3),
+        (13, 4),
+        (14, 4),
+        (15, 4),
+        (16, 5),
+        (17, 5),
+        (18, 5),
+        (19, 4),
+    }
+    bright = {(4, 1), (18, 2), (29, 4), (41, 1), (48, 5)}
+    blocks = []
+    for row in range(rows):
+        for col in range(cols):
+            px = x + col * pitch
+            py = y + row * pitch
+            opacity = 0.34 + ((row + col) % 5) * 0.035
+            fill = "#6C54BD" if theme["bg"] == PALETTE["ink"] else "#D6CBF3"
+            if (col, row) in bright:
+                fill = PALETTE["soft"]
+                opacity = 0.95
+            blocks.append(
+                f'<rect x="{px}" y="{py}" width="{dot}" height="{dot}" rx="2" fill="{fill}" opacity="{opacity:.2f}">'
+                f'<animate attributeName="opacity" values="{opacity:.2f};{min(1, opacity + 0.24):.2f};{opacity:.2f}" dur="{7 + ((row + col) % 6) * 0.2:.1f}s" repeatCount="indefinite" />'
+                f'</rect>'
+            )
+    snake = []
+    for idx, (col, row) in enumerate(sorted(active)):
+        px = x + col * pitch
+        py = y + row * pitch
+        color = [PALETTE["white"], PALETTE["mist"], PALETTE["soft"], PALETTE["mid"]][idx % 4]
+        snake.append(
+            f'<rect x="{px}" y="{py}" width="{dot + 2}" height="{dot + 2}" rx="3" fill="{color}" opacity="0.96">'
+            f'<animate attributeName="opacity" values="0.48;1;0.72;1" dur="3.8s" begin="{idx * 0.08:.2f}s" repeatCount="indefinite" />'
+            f'<animateTransform attributeName="transform" type="translate" values="0 0;0 -2;0 0" dur="4.2s" begin="{idx * 0.06:.2f}s" repeatCount="indefinite" />'
+            f'</rect>'
+        )
+    head_col, head_row = 19, 4
+    snake.append(
+        f'<circle cx="{x + head_col * pitch + dot + 5}" cy="{y + head_row * pitch + dot / 2}" r="{dot * 0.85}" fill="{PALETTE["white"]}">'
+        '<animate attributeName="r" values="8;11;8" dur="3.2s" repeatCount="indefinite" />'
+        '</circle>'
+    )
+    return "".join(blocks + snake)
+
+
+def render_snake(theme_name: str, data: dict, mobile: bool = False) -> str:
+    theme = THEMES[theme_name]
+    uid = f"snake-{'mobile-' if mobile else ''}{theme_name}"
+    stats = stats_from_data(data)
+    width, height = (430, 360) if mobile else (980, 340)
+    cols, rows = (26, 8) if mobile else (52, 7)
+    grid_x, grid_y, pitch, dot = (30, 144, 15, 10) if mobile else (72, 150, 16, 10)
+    title_size = 31 if mobile else 42
+    subtitle_size = 13 if mobile else 17
+    title_text = "snake.pulse" if mobile else "contribution.snake"
+    subtitle_text = "White + lavender path." if mobile else "High contrast path: white, light lavender and violet."
+    metric_block = (
+        f'<text x="342" y="62" class="metric">{stats["contributions"]}</text>'
+        if mobile
+        else f'<text x="780" y="78" class="metric">{stats["contributions"]}</text><text x="780" y="105" class="note">public contributions</text>'
+    )
+    return f'''<svg width="{width}" height="{height}" viewBox="0 0 {width} {height}" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">High contrast contribution snake for DaikiLevrone</title>
+  <desc id="desc">Animated contribution snake with white, light lavender and purple high contrast colors.</desc>
+  <style>
+    .title {{ font-family: Inter, Segoe UI, Arial, sans-serif; font-size: {title_size}px; font-weight: 850; fill: {theme['text']}; letter-spacing: 0; }}
+    .subtitle {{ font-family: Consolas, "Liberation Mono", Menlo, monospace; font-size: {subtitle_size}px; fill: {theme['muted']}; }}
+    .metric {{ font-family: Inter, Segoe UI, Arial, sans-serif; font-size: {28 if mobile else 36}px; font-weight: 900; fill: {theme['text']}; letter-spacing: 0; }}
+    .note {{ font-family: Consolas, "Liberation Mono", Menlo, monospace; font-size: {12 if mobile else 14}px; fill: {theme['accent2']}; }}
+  </style>
+  {defs(theme, uid)}
+  <rect width="{width}" height="{height}" fill="{theme['bg']}" />
+  <rect x="{14 if mobile else 18}" y="{16 if mobile else 18}" width="{402 if mobile else 944}" height="{326 if mobile else 304}" rx="28" fill="url(#{uid}-bg)" stroke="{theme['line']}" stroke-opacity="0.7" />
+  <path d="M{30 if mobile else 56} {height - 32}H{250 if mobile else 498}" stroke="url(#{uid}-bar)" stroke-width="{4 if mobile else 6}" stroke-linecap="round">
+    <animate attributeName="stroke-dasharray" values="70 260;220 110;70 260" dur="8.5s" repeatCount="indefinite" />
+  </path>
+  <text x="{28 if mobile else 50}" y="{62 if mobile else 78}" class="title">{title_text}</text>
+  <text x="{30 if mobile else 52}" y="{91 if mobile else 111}" class="subtitle">{subtitle_text}</text>
+  {metric_block}
+  <g>{snake_grid(cols, rows, grid_x, grid_y, pitch, dot, theme, uid)}</g>
+  <rect x="{grid_x}" y="{grid_y + rows * pitch + 26}" width="{180 if mobile else 370}" height="{5 if mobile else 6}" rx="3" fill="url(#{uid}-bar)">
+    <animate attributeName="width" values="{80 if mobile else 170};{180 if mobile else 370};{120 if mobile else 260};{180 if mobile else 370}" dur="7.2s" repeatCount="indefinite" />
+  </rect>
+</svg>
+'''
+
+
 def render_badge(theme_name: str, label: str, icon: str) -> str:
     theme = THEMES[theme_name]
     uid = f"badge-{theme_name}-{label.lower().replace(' ', '-')}"
@@ -307,7 +413,7 @@ def draw_preview(theme_name: str, out: Path, mobile: bool = False) -> None:
     if Image is None:
         return
     theme = THEMES[theme_name]
-    w, h = (430, 1060) if mobile else (980, 700)
+    w, h = (430, 1060) if mobile else (980, 840)
     img = Image.new("RGB", (w, h), theme["bg"])
     draw = ImageDraw.Draw(img)
     draw.rounded_rectangle((18, 18, w - 18, h - 18), radius=24, fill=theme["panel"], outline=theme["line"], width=2)
@@ -334,6 +440,10 @@ def main() -> None:
         (assets / f"streak-{theme}.svg").write_text(clean_svg(render_streak(theme, data)), encoding="utf-8", newline="\n")
         (assets / f"streak-{theme}-mobile.svg").write_text(
             clean_svg(render_streak(theme, data, mobile=True)), encoding="utf-8", newline="\n"
+        )
+        (assets / f"snake-{theme}.svg").write_text(clean_svg(render_snake(theme, data)), encoding="utf-8", newline="\n")
+        (assets / f"snake-{theme}-mobile.svg").write_text(
+            clean_svg(render_snake(theme, data, mobile=True)), encoding="utf-8", newline="\n"
         )
         (assets / f"badge-github-{theme}.svg").write_text(
             clean_svg(render_badge(theme, "GitHub", "GH")), encoding="utf-8", newline="\n"

@@ -93,14 +93,14 @@ def chip_row(stack: list[str], x: int, y: int, max_x: int, theme: dict, class_na
     svg = []
     chip_x = x
     for tech in stack:
-        width = max(72, min(150, 35 + len(tech) * 10))
+        width = max(86, min(168, 44 + len(tech) * 10))
         if chip_x + width > max_x:
             break
         svg.append(
-            f'<rect x="{chip_x}" y="{y}" width="{width}" height="32" rx="16" fill="{theme["chip"]}" stroke="{theme["line"]}" stroke-opacity="0.62" />'
-            f'<text x="{chip_x + 17}" y="{y + 21}" class="{class_name}">{esc(tech)}</text>'
+            f'<rect x="{chip_x}" y="{y}" width="{width}" height="36" rx="18" fill="{theme["chip"]}" stroke="{theme["line"]}" stroke-opacity="0.68" />'
+            f'<text x="{chip_x + 18}" y="{y + 24}" class="{class_name}">{esc(tech)}</text>'
         )
-        chip_x += width + 9
+        chip_x += width + 11
     return "".join(svg)
 
 
@@ -108,33 +108,33 @@ def desktop_card(project: dict, idx: int, theme: dict, uid: str) -> str:
     col = idx % 2
     row = idx // 2
     x = 38 + col * 482
-    y = 136 + row * 300
+    y = 148 + row * 352
     width = 444
-    height = 260
+    height = 312
     name = project["name"]
     category = project["category"]
     summary = project["summary"]
     repo = project["repoUrl"].replace("https://github.com/", "github.com/")
     body = []
-    text_y = y + 104
-    for line in wrap(summary, 48, 4):
+    text_y = y + 116
+    for line in wrap(summary, 44, 5):
         body.append(f'<text x="{x + 26}" y="{text_y}" class="body">{esc(line)}</text>')
-        text_y += 22
+        text_y += 26
     return f'''
   <g filter="url(#{uid}-shadow)">
     <rect x="{x}" y="{y}" width="{width}" height="{height}" rx="18" fill="{theme["card"]}" stroke="url(#{uid}-stroke)" stroke-width="1.4" stroke-opacity="0.74">
       <animate attributeName="stroke-opacity" values="0.42;0.95;0.42" dur="{7.5 + idx * 0.4:.1f}s" repeatCount="indefinite" />
     </rect>
-    <rect x="{x}" y="{y}" width="{width}" height="72" rx="18" fill="{theme["card2"]}" />
-    <rect x="{x}" y="{y + 54}" width="{width}" height="18" fill="{theme["card2"]}" />
-    <circle cx="{x + 27}" cy="{y + 36}" r="7" fill="{theme["accent2"]}">
+    <rect x="{x}" y="{y}" width="{width}" height="82" rx="18" fill="{theme["card2"]}" />
+    <rect x="{x}" y="{y + 62}" width="{width}" height="20" fill="{theme["card2"]}" />
+    <circle cx="{x + 29}" cy="{y + 41}" r="8" fill="{theme["accent2"]}">
       <animate attributeName="opacity" values="0.45;1;0.45" dur="{4.8 + idx * 0.2:.1f}s" repeatCount="indefinite" />
     </circle>
-    <text x="{x + 48}" y="{y + 44}" class="name">{esc(name)}</text>
-    <text x="{x + 26}" y="{y + 79}" class="category">{esc(category)}</text>
+    <text x="{x + 54}" y="{y + 50}" class="name">{esc(name)}</text>
+    <text x="{x + 26}" y="{y + 92}" class="category">{esc(category)}</text>
     {''.join(body)}
-    {chip_row(project["stack"][:5], x + 26, y + 196, x + width - 24, theme)}
-    <text x="{x + 26}" y="{y + 242}" class="link">{esc(repo)}</text>
+    {chip_row(project["stack"][:4], x + 26, y + 238, x + width - 24, theme)}
+    <text x="{x + 26}" y="{y + 292}" class="link">{esc(repo)}</text>
     <rect x="{x + 26}" y="{y + height - 8}" width="72" height="3" rx="1.5" fill="{theme["accent2"]}">
       <animate attributeName="x" values="{x + 26};{x + width - 98};{x + 26}" dur="{8.2 + idx * 0.5:.1f}s" repeatCount="indefinite" />
     </rect>
@@ -143,27 +143,27 @@ def desktop_card(project: dict, idx: int, theme: dict, uid: str) -> str:
 
 def mobile_card(project: dict, idx: int, theme: dict, uid: str) -> str:
     x = 22
-    y = 118 + idx * 324
+    y = 128 + idx * 372
     width = 386
-    height = 292
+    height = 336
     body = []
-    text_y = y + 102
-    for line in wrap(project["summary"], 38, 5):
+    text_y = y + 112
+    for line in wrap(project["summary"], 36, 6):
         body.append(f'<text x="{x + 22}" y="{text_y}" class="body">{esc(line)}</text>')
-        text_y += 21
+        text_y += 24
 
     return f'''
   <g filter="url(#{uid}-shadow)">
     <rect x="{x}" y="{y}" width="{width}" height="{height}" rx="18" fill="{theme["card"]}" stroke="url(#{uid}-stroke)" stroke-width="1.3" stroke-opacity="0.76">
       <animate attributeName="stroke-opacity" values="0.46;1;0.46" dur="{7.5 + idx * 0.4:.1f}s" repeatCount="indefinite" />
     </rect>
-    <rect x="{x}" y="{y}" width="{width}" height="70" rx="18" fill="{theme["card2"]}" />
-    <rect x="{x}" y="{y + 52}" width="{width}" height="18" fill="{theme["card2"]}" />
-    <text x="{x + 22}" y="{y + 42}" class="name">{esc(project["name"])}</text>
-    <text x="{x + 22}" y="{y + 80}" class="category">{esc(project["category"])}</text>
+    <rect x="{x}" y="{y}" width="{width}" height="78" rx="18" fill="{theme["card2"]}" />
+    <rect x="{x}" y="{y + 58}" width="{width}" height="20" fill="{theme["card2"]}" />
+    <text x="{x + 22}" y="{y + 47}" class="name">{esc(project["name"])}</text>
+    <text x="{x + 22}" y="{y + 91}" class="category">{esc(project["category"])}</text>
     {''.join(body)}
-    {chip_row(project["stack"][:4], x + 22, y + 216, x + width - 20, theme, "chip-mobile")}
-    <text x="{x + 22}" y="{y + 274}" class="link">{esc(project["repoUrl"].replace("https://github.com/", "github.com/"))}</text>
+    {chip_row(project["stack"][:3], x + 22, y + 254, x + width - 20, theme, "chip-mobile")}
+    <text x="{x + 22}" y="{y + 316}" class="link">{esc(project["repoUrl"].replace("https://github.com/", "github.com/"))}</text>
   </g>'''
 
 
@@ -171,28 +171,28 @@ def render_desktop(theme_name: str, projects: list[dict]) -> str:
     theme = THEMES[theme_name]
     uid = f"projects-{theme_name}"
     cards = "".join(desktop_card(project, idx, theme, uid) for idx, project in enumerate(projects[:4]))
-    return f'''<svg width="980" height="770" viewBox="0 0 980 770" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+    return f'''<svg width="980" height="920" viewBox="0 0 980 920" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
   <title id="title">Featured projects by Fabricio Prado</title>
   <desc id="desc">Four selected public repositories with readable cards, verified repository links and a purple visual system.</desc>
   <style>
-    .title {{ font-family: Inter, Segoe UI, Arial, sans-serif; font-size: 44px; font-weight: 800; fill: {theme['text']}; letter-spacing: 0; }}
-    .subtitle {{ font-family: Consolas, "Liberation Mono", Menlo, monospace; font-size: 17px; fill: {theme['muted']}; }}
-    .name {{ font-family: Inter, Segoe UI, Arial, sans-serif; font-size: 24px; font-weight: 800; fill: {theme['text']}; letter-spacing: 0; }}
-    .category {{ font-family: Consolas, "Liberation Mono", Menlo, monospace; font-size: 15px; fill: {theme['accent2']}; }}
-    .body {{ font-family: Segoe UI, Arial, sans-serif; font-size: 17px; fill: {theme['muted']}; }}
-    .chip {{ font-family: Consolas, "Liberation Mono", Menlo, monospace; font-size: 13px; fill: {theme['text']}; }}
+    .title {{ font-family: Inter, Segoe UI, Arial, sans-serif; font-size: 50px; font-weight: 850; fill: {theme['text']}; letter-spacing: 0; }}
+    .subtitle {{ font-family: Consolas, "Liberation Mono", Menlo, monospace; font-size: 19px; fill: {theme['muted']}; }}
+    .name {{ font-family: Inter, Segoe UI, Arial, sans-serif; font-size: 27px; font-weight: 850; fill: {theme['text']}; letter-spacing: 0; }}
+    .category {{ font-family: Consolas, "Liberation Mono", Menlo, monospace; font-size: 17px; fill: {theme['accent2']}; }}
+    .body {{ font-family: Segoe UI, Arial, sans-serif; font-size: 18px; fill: {theme['muted']}; }}
+    .chip {{ font-family: Consolas, "Liberation Mono", Menlo, monospace; font-size: 14px; fill: {theme['text']}; }}
     .link {{ font-family: Consolas, "Liberation Mono", Menlo, monospace; font-size: 13px; fill: {theme['accent2']}; }}
     .note {{ font-family: Consolas, "Liberation Mono", Menlo, monospace; font-size: 13px; fill: {theme['muted']}; }}
   </style>
   {defs(theme, uid)}
-  <rect width="980" height="770" fill="{theme['bg']}" />
-  <rect x="18" y="18" width="944" height="734" rx="28" fill="url(#{uid}-bg)" stroke="{theme['line']}" stroke-opacity="0.58" />
-  <text x="38" y="72" class="title">selected.systems</text>
-  <text x="40" y="106" class="subtitle">Curated public implementation work. Generated language noise removed.</text>
-  <rect x="736" y="44" width="194" height="38" rx="19" fill="{theme['chip']}" stroke="{theme['line']}">
+  <rect width="980" height="920" fill="{theme['bg']}" />
+  <rect x="18" y="18" width="944" height="884" rx="30" fill="url(#{uid}-bg)" stroke="{theme['line']}" stroke-opacity="0.62" />
+  <text x="38" y="78" class="title">selected.systems</text>
+  <text x="40" y="116" class="subtitle">Curated public implementation work. Generated language noise removed.</text>
+  <rect x="728" y="46" width="202" height="42" rx="21" fill="{theme['chip']}" stroke="{theme['line']}">
     <animate attributeName="stroke-opacity" values="0.45;1;0.45" dur="6s" repeatCount="indefinite" />
   </rect>
-  <text x="760" y="68" class="subtitle">DaikiLevrone/repo</text>
+  <text x="752" y="73" class="subtitle">DaikiLevrone/repo</text>
   {cards}
 </svg>
 '''
@@ -202,23 +202,23 @@ def render_mobile(theme_name: str, projects: list[dict]) -> str:
     theme = THEMES[theme_name]
     uid = f"projects-mobile-{theme_name}"
     cards = "".join(mobile_card(project, idx, theme, uid) for idx, project in enumerate(projects[:4]))
-    return f'''<svg width="430" height="1450" viewBox="0 0 430 1450" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+    return f'''<svg width="430" height="1670" viewBox="0 0 430 1670" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
   <title id="title">Featured mobile projects by Fabricio Prado</title>
   <desc id="desc">Mobile stacked cards for four selected public repositories by Fabricio Prado.</desc>
   <style>
-    .title {{ font-family: Inter, Segoe UI, Arial, sans-serif; font-size: 31px; font-weight: 800; fill: {theme['text']}; letter-spacing: 0; }}
-    .subtitle {{ font-family: Consolas, "Liberation Mono", Menlo, monospace; font-size: 13px; fill: {theme['muted']}; }}
-    .name {{ font-family: Inter, Segoe UI, Arial, sans-serif; font-size: 20px; font-weight: 800; fill: {theme['text']}; letter-spacing: 0; }}
-    .category {{ font-family: Consolas, "Liberation Mono", Menlo, monospace; font-size: 13px; fill: {theme['accent2']}; }}
-    .body {{ font-family: Segoe UI, Arial, sans-serif; font-size: 15px; fill: {theme['muted']}; }}
+    .title {{ font-family: Inter, Segoe UI, Arial, sans-serif; font-size: 35px; font-weight: 850; fill: {theme['text']}; letter-spacing: 0; }}
+    .subtitle {{ font-family: Consolas, "Liberation Mono", Menlo, monospace; font-size: 14px; fill: {theme['muted']}; }}
+    .name {{ font-family: Inter, Segoe UI, Arial, sans-serif; font-size: 22px; font-weight: 850; fill: {theme['text']}; letter-spacing: 0; }}
+    .category {{ font-family: Consolas, "Liberation Mono", Menlo, monospace; font-size: 14px; fill: {theme['accent2']}; }}
+    .body {{ font-family: Segoe UI, Arial, sans-serif; font-size: 16px; fill: {theme['muted']}; }}
     .chip-mobile {{ font-family: Consolas, "Liberation Mono", Menlo, monospace; font-size: 12px; fill: {theme['text']}; }}
     .link {{ font-family: Consolas, "Liberation Mono", Menlo, monospace; font-size: 12px; fill: {theme['accent2']}; }}
   </style>
   {defs(theme, uid)}
-  <rect width="430" height="1450" fill="{theme['bg']}" />
-  <rect x="14" y="16" width="402" height="1418" rx="24" fill="url(#{uid}-bg)" stroke="{theme['line']}" stroke-opacity="0.58" />
-  <text x="22" y="62" class="title">selected.systems</text>
-  <text x="24" y="92" class="subtitle">Real public repositories, readable on mobile.</text>
+  <rect width="430" height="1670" fill="{theme['bg']}" />
+  <rect x="14" y="16" width="402" height="1638" rx="26" fill="url(#{uid}-bg)" stroke="{theme['line']}" stroke-opacity="0.62" />
+  <text x="22" y="66" class="title">selected.systems</text>
+  <text x="24" y="100" class="subtitle">Real public repositories, readable on mobile.</text>
   {cards}
 </svg>
 '''
@@ -228,16 +228,16 @@ def draw_png(theme_name: str, projects: list[dict], out: Path, mobile: bool = Fa
     if Image is None:
         return
     theme = THEMES[theme_name]
-    w, h = (430, 1450) if mobile else (980, 770)
+    w, h = (430, 1670) if mobile else (980, 920)
     img = Image.new("RGB", (w, h), theme["bg"])
     draw = ImageDraw.Draw(img)
     draw.rounded_rectangle((18, 18, w - 18, h - 18), radius=24, fill=theme["panel"], outline=theme["line"], width=2)
     draw.text((28, 36), "selected.systems", fill=theme["text"])
     for idx, project in enumerate(projects[:4]):
         if mobile:
-            x, y, cw, ch = 22, 118 + idx * 324, 386, 292
+            x, y, cw, ch = 22, 128 + idx * 372, 386, 336
         else:
-            x, y, cw, ch = 38 + (idx % 2) * 482, 136 + (idx // 2) * 300, 444, 260
+            x, y, cw, ch = 38 + (idx % 2) * 482, 148 + (idx // 2) * 352, 444, 312
         draw.rounded_rectangle((x, y, x + cw, y + ch), radius=18, fill=theme["card"], outline=theme["line"], width=2)
         draw.text((x + 22, y + 24), project["name"], fill=theme["text"])
         yy = y + 92

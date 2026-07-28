@@ -33,8 +33,10 @@
 
 <div align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/DaikiLevrone/DaikiLevrone/output/github-snake-dark.svg">
-    <img alt="Contribution snake animation for DaikiLevrone" src="https://raw.githubusercontent.com/DaikiLevrone/DaikiLevrone/output/github-snake.svg" width="100%">
+    <source media="(max-width: 640px) and (prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/DaikiLevrone/DaikiLevrone/main/assets/snake-dark-mobile.svg">
+    <source media="(max-width: 640px)" srcset="https://raw.githubusercontent.com/DaikiLevrone/DaikiLevrone/main/assets/snake-light-mobile.svg">
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/DaikiLevrone/DaikiLevrone/main/assets/snake-dark.svg">
+    <img alt="High contrast contribution snake animation for DaikiLevrone" src="https://raw.githubusercontent.com/DaikiLevrone/DaikiLevrone/main/assets/snake-light.svg" width="100%">
   </picture>
 </div>
 
@@ -51,11 +53,11 @@
 
 <p align="center">
   <a href="https://github.com/DaikiLevrone/SistemaGuiasBoletas">SistemaGuiasBoletas</a>
-  ·
+  -
   <a href="https://github.com/DaikiLevrone/Enkarga">Enkarga</a>
   <br>
   <a href="https://github.com/DaikiLevrone/TRABAJO-FINAL-BPA">TRABAJO-FINAL-BPA</a>
-  ·
+  -
   <a href="https://github.com/DaikiLevrone/Fitfat-Site-Web">Fitfat-Site-Web</a>
 </p>
 

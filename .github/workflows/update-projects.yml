@@ -37,6 +37,7 @@ jobs:
             git add README.md projects.json assets/projects-dark.svg assets/projects-light.svg assets/projects-dark-mobile.svg assets/projects-light-mobile.svg
             git add assets/metrics-tech-dark.svg assets/metrics-tech-light.svg assets/metrics-tech-dark-mobile.svg assets/metrics-tech-light-mobile.svg
             git add assets/streak-dark.svg assets/streak-light.svg assets/streak-dark-mobile.svg assets/streak-light-mobile.svg
+            git add assets/snake-dark.svg assets/snake-light.svg assets/snake-dark-mobile.svg assets/snake-light-mobile.svg
             git add assets/badge-github-dark.svg assets/badge-github-light.svg assets/badge-repositories-dark.svg assets/badge-repositories-light.svg assets/badge-profile-repo-dark.svg assets/badge-profile-repo-light.svg
             git commit -m "chore: refresh profile projects"
             git push
