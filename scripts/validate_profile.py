@@ -41,6 +41,8 @@ def validate_svg(path: Path, errors: list[str]) -> None:
         fail(f"{path}: missing title or desc for accessibility", errors)
     if "role=\"img\"" not in text:
         fail(f"{path}: missing role=\"img\"", errors)
+    if "<script" in text.lower() or "javascript:" in text.lower():
+        fail(f"{path}: JavaScript is not allowed in profile SVG assets", errors)
 
 
 def scan_secrets(errors: list[str]) -> None:
@@ -94,9 +96,27 @@ def validate_files(errors: list[str]) -> None:
         ROOT / "README.md",
         ROOT / "dark.svg",
         ROOT / "light.svg",
+        ROOT / "assets" / "banner-dark-mobile.svg",
+        ROOT / "assets" / "banner-light-mobile.svg",
+        ROOT / "assets" / "metrics-tech-dark.svg",
+        ROOT / "assets" / "metrics-tech-light.svg",
+        ROOT / "assets" / "metrics-tech-dark-mobile.svg",
+        ROOT / "assets" / "metrics-tech-light-mobile.svg",
         ROOT / "projects.json",
         ROOT / "assets" / "projects-dark.svg",
         ROOT / "assets" / "projects-light.svg",
+        ROOT / "assets" / "projects-dark-mobile.svg",
+        ROOT / "assets" / "projects-light-mobile.svg",
+        ROOT / "assets" / "streak-dark.svg",
+        ROOT / "assets" / "streak-light.svg",
+        ROOT / "assets" / "streak-dark-mobile.svg",
+        ROOT / "assets" / "streak-light-mobile.svg",
+        ROOT / "assets" / "badge-github-dark.svg",
+        ROOT / "assets" / "badge-github-light.svg",
+        ROOT / "assets" / "badge-repositories-dark.svg",
+        ROOT / "assets" / "badge-repositories-light.svg",
+        ROOT / "assets" / "badge-profile-repo-dark.svg",
+        ROOT / "assets" / "badge-profile-repo-light.svg",
         ROOT / ".github" / "workflows" / "snake.yml",
         ROOT / ".github" / "workflows" / "update-projects.yml",
         ROOT / "docs" / "PROFILE_SETUP.md",
@@ -110,6 +130,9 @@ def validate_files(errors: list[str]) -> None:
     readme = (ROOT / "README.md").read_text(encoding="utf-8") if (ROOT / "README.md").exists() else ""
     if 'alt="' not in readme and "alt=" not in readme:
         fail("README: no image alt text detected", errors)
+    for forbidden in ["Top Languages by Repo", "Profile Assets", "PHOTO PENDING"]:
+        if forbidden in readme:
+            fail(f"README: forbidden text remains: {forbidden}", errors)
 
 
 def validate_action_pins(errors: list[str]) -> None:

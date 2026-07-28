@@ -1,4 +1,4 @@
-"""Build local HTML and PNG previews for review."""
+"""Build local HTML and composed PNG previews for review."""
 
 from __future__ import annotations
 
@@ -22,39 +22,63 @@ HTML = """<!doctype html>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Fabricio Prado GitHub Profile Preview</title>
   <style>
-    :root { color-scheme: dark light; --bg: #06110d; --text: #f8fafc; --muted: #9ca3af; --line: #1e3a2d; }
-    @media (prefers-color-scheme: light) { :root { --bg: #f8fafc; --text: #0b1f16; --muted: #4b5563; --line: #a7f3d0; } }
-    body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.55 system-ui, sans-serif; }
-    main { max-width: 980px; margin: 0 auto; padding: 24px 16px 56px; }
+    :root { color-scheme: dark light; --bg: #110927; --line: #7B5FD1; }
+    @media (prefers-color-scheme: light) { :root { --bg: #E7DFF7; --line: #C6B4EE; } }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); font: 16px/1.5 system-ui, sans-serif; }
+    main { width: min(100%, 980px); margin: 0 auto; padding: 18px 12px 56px; }
     img { max-width: 100%; height: auto; display: block; }
-    section { border-top: 1px solid var(--line); margin-top: 28px; padding-top: 22px; }
-    p { color: var(--muted); }
-    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-    @media (max-width: 720px) { .grid { grid-template-columns: 1fr; } }
+    .block { margin: 0 0 18px; }
+    .badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+    .badges img { width: 210px; }
+    @media (max-width: 640px) { main { padding-inline: 8px; } .badges img { width: 190px; } }
   </style>
 </head>
 <body>
   <main>
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="../dark.svg" />
-      <source media="(prefers-color-scheme: light)" srcset="../light.svg" />
-      <img src="../light.svg" alt="Fabricio Prado terminal banner" />
-    </picture>
-    <section>
-      <h1>Fabricio Prado</h1>
-      <p>Full-stack development, process automation, IT support and data/systems analysis.</p>
-    </section>
-    <section>
+    <div class="block">
       <picture>
-        <source media="(prefers-color-scheme: dark)" srcset="../assets/projects-dark.svg" />
-        <source media="(prefers-color-scheme: light)" srcset="../assets/projects-light.svg" />
-        <img src="../assets/projects-light.svg" alt="Selected professional repositories" />
+        <source media="(max-width: 640px) and (prefers-color-scheme: dark)" srcset="../assets/banner-dark-mobile.svg" />
+        <source media="(max-width: 640px)" srcset="../assets/banner-light-mobile.svg" />
+        <source media="(prefers-color-scheme: dark)" srcset="../dark.svg" />
+        <img src="../light.svg" alt="Fabricio Prado terminal banner" />
       </picture>
-    </section>
-    <section class="grid">
-      <img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=DaikiLevrone&theme=github" alt="GitHub stats preview" />
-      <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=DaikiLevrone&theme=github" alt="Repository languages preview" />
-    </section>
+    </div>
+    <div class="block">
+      <picture>
+        <source media="(max-width: 640px) and (prefers-color-scheme: dark)" srcset="../assets/streak-dark-mobile.svg" />
+        <source media="(max-width: 640px)" srcset="../assets/streak-light-mobile.svg" />
+        <source media="(prefers-color-scheme: dark)" srcset="../assets/streak-dark.svg" />
+        <img src="../assets/streak-light.svg" alt="GitHub contribution pulse" />
+      </picture>
+    </div>
+    <div class="block">
+      <picture>
+        <source media="(max-width: 640px) and (prefers-color-scheme: dark)" srcset="../assets/metrics-tech-dark-mobile.svg" />
+        <source media="(max-width: 640px)" srcset="../assets/metrics-tech-light-mobile.svg" />
+        <source media="(prefers-color-scheme: dark)" srcset="../assets/metrics-tech-dark.svg" />
+        <img src="../assets/metrics-tech-light.svg" alt="GitHub stats and technology stack" />
+      </picture>
+    </div>
+    <div class="block">
+      <picture>
+        <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/DaikiLevrone/DaikiLevrone/output/github-snake-dark.svg" />
+        <img src="https://raw.githubusercontent.com/DaikiLevrone/DaikiLevrone/output/github-snake.svg" alt="Contribution snake" />
+      </picture>
+    </div>
+    <div class="block">
+      <picture>
+        <source media="(max-width: 640px) and (prefers-color-scheme: dark)" srcset="../assets/projects-dark-mobile.svg" />
+        <source media="(max-width: 640px)" srcset="../assets/projects-light-mobile.svg" />
+        <source media="(prefers-color-scheme: dark)" srcset="../assets/projects-dark.svg" />
+        <img src="../assets/projects-light.svg" alt="Selected repositories" />
+      </picture>
+    </div>
+    <div class="badges">
+      <img src="../assets/badge-github-dark.svg" alt="GitHub badge" />
+      <img src="../assets/badge-repositories-dark.svg" alt="Repositories badge" />
+      <img src="../assets/badge-profile-repo-dark.svg" alt="Profile repository badge" />
+    </div>
   </main>
 </body>
 </html>
@@ -65,25 +89,30 @@ def compose() -> None:
     if Image is None:
         return
     dark = Image.open(PREVIEWS / "banner-dark.png").convert("RGB")
+    metrics = Image.open(PREVIEWS / "metrics-tech-dark.png").convert("RGB")
     projects = Image.open(PREVIEWS / "projects-dark.png").convert("RGB")
-    desktop = Image.new("RGB", (1280, 1700), "#06110D")
-    mobile = Image.new("RGB", (430, 1400), "#06110D")
+    desktop = Image.new("RGB", (1220, 2200), "#110927")
+    tablet = Image.new("RGB", (820, 2200), "#110927")
+    mobile = Image.new("RGB", (430, 3300), "#110927")
 
     draw = ImageDraw.Draw(desktop)
-    draw.text((80, 44), "Desktop preview / README flow", fill="#F8FAFC")
-    desktop.paste(dark.resize((1080, 559)), (100, 88))
-    desktop.paste(projects.resize((1080, 595)), (100, 700))
-    draw.rectangle((100, 1340, 1180, 1600), outline="#1E3A2D", width=2)
-    draw.text((132, 1380), "Stats, languages and contribution snake render from GitHub-hosted endpoints.", fill="#9CA3AF")
+    draw.text((70, 36), "Desktop preview / README flow", fill="#E7DFF7")
+    desktop.paste(dark.resize((1080, 617)), (70, 78))
+    desktop.paste(metrics.resize((1080, 771)), (70, 730))
+    desktop.paste(projects.resize((1080, 849)), (70, 1545))
     desktop.save(PREVIEWS / "profile-desktop.png")
 
-    draw_m = ImageDraw.Draw(mobile)
-    draw_m.text((18, 24), "Mobile preview", fill="#F8FAFC")
-    mobile.paste(dark.resize((398, 206)), (16, 64))
-    mobile.paste(projects.resize((398, 219)), (16, 304))
-    draw_m.rectangle((16, 560, 414, 760), outline="#1E3A2D", width=2)
-    draw_m.text((32, 596), "Text sections stay readable below the images.", fill="#9CA3AF")
-    draw_m.text((32, 632), "External cards scale to 100% width on mobile.", fill="#9CA3AF")
+    tablet.paste(dark.resize((780, 446)), (20, 28))
+    tablet.paste(metrics.resize((780, 557)), (20, 502))
+    tablet.paste(projects.resize((780, 613)), (20, 1092))
+    tablet.save(PREVIEWS / "profile-tablet.png")
+
+    mobile_banner = Image.open(PREVIEWS / "banner-dark-mobile.png").convert("RGB")
+    mobile_metrics = Image.open(PREVIEWS / "metrics-tech-dark-mobile.png").convert("RGB")
+    mobile_projects = Image.open(PREVIEWS / "projects-dark-mobile.png").convert("RGB")
+    mobile.paste(mobile_banner.resize((398, 676)), (16, 22))
+    mobile.paste(mobile_metrics.resize((398, 981)), (16, 722))
+    mobile.paste(mobile_projects.resize((398, 1342)), (16, 1726))
     mobile.save(PREVIEWS / "profile-mobile.png")
 
 

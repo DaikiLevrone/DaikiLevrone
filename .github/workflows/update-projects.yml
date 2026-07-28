@@ -26,6 +26,7 @@ jobs:
         run: |
           python scripts/update_projects.py --write
           python scripts/generate_project_panel.py --no-preview
+          python scripts/generate_profile_sections.py --no-preview
           python scripts/validate_profile.py
 
       - name: Commit refreshed files
@@ -33,7 +34,10 @@ jobs:
           if [ -n "$(git status --porcelain)" ]; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add README.md projects.json assets/projects-dark.svg assets/projects-light.svg
+            git add README.md projects.json assets/projects-dark.svg assets/projects-light.svg assets/projects-dark-mobile.svg assets/projects-light-mobile.svg
+            git add assets/metrics-tech-dark.svg assets/metrics-tech-light.svg assets/metrics-tech-dark-mobile.svg assets/metrics-tech-light-mobile.svg
+            git add assets/streak-dark.svg assets/streak-light.svg assets/streak-dark-mobile.svg assets/streak-light-mobile.svg
+            git add assets/badge-github-dark.svg assets/badge-github-light.svg assets/badge-repositories-dark.svg assets/badge-repositories-light.svg assets/badge-profile-repo-dark.svg assets/badge-profile-repo-light.svg
             git commit -m "chore: refresh profile projects"
             git push
           else

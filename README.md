@@ -1,8 +1,9 @@
 <div align="center">
   <picture>
+    <source media="(max-width: 640px) and (prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/DaikiLevrone/DaikiLevrone/main/assets/banner-dark-mobile.svg">
+    <source media="(max-width: 640px)" srcset="https://raw.githubusercontent.com/DaikiLevrone/DaikiLevrone/main/assets/banner-light-mobile.svg">
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/DaikiLevrone/DaikiLevrone/main/dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/DaikiLevrone/DaikiLevrone/main/light.svg">
-    <img alt="Fabricio Prado - DaikiLevrone terminal profile banner" src="https://raw.githubusercontent.com/DaikiLevrone/DaikiLevrone/main/light.svg" width="100%">
+    <img alt="Fabricio Prado - DaikiLevrone animated profile banner" src="https://raw.githubusercontent.com/DaikiLevrone/DaikiLevrone/main/light.svg" width="100%">
   </picture>
 </div>
 
@@ -10,9 +11,10 @@
 
 <div align="center">
   <picture>
+    <source media="(max-width: 640px) and (prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/DaikiLevrone/DaikiLevrone/main/assets/streak-dark-mobile.svg">
+    <source media="(max-width: 640px)" srcset="https://raw.githubusercontent.com/DaikiLevrone/DaikiLevrone/main/assets/streak-light-mobile.svg">
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/DaikiLevrone/DaikiLevrone/main/assets/streak-dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/DaikiLevrone/DaikiLevrone/main/assets/streak-light.svg">
-    <img alt="GitHub contribution streak for DaikiLevrone" src="https://raw.githubusercontent.com/DaikiLevrone/DaikiLevrone/main/assets/streak-light.svg" width="100%">
+    <img alt="GitHub contribution pulse for DaikiLevrone" src="https://raw.githubusercontent.com/DaikiLevrone/DaikiLevrone/main/assets/streak-light.svg" width="100%">
   </picture>
 </div>
 
@@ -20,14 +22,10 @@
 
 <div align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=DaikiLevrone&theme=github_dark">
-    <source media="(prefers-color-scheme: light)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=DaikiLevrone&theme=github">
-    <img alt="GitHub stats for DaikiLevrone" src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=DaikiLevrone&theme=github" width="49%">
-  </picture>
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=DaikiLevrone&theme=github_dark">
-    <source media="(prefers-color-scheme: light)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=DaikiLevrone&theme=github">
-    <img alt="Repository languages for DaikiLevrone" src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=DaikiLevrone&theme=github" width="49%">
+    <source media="(max-width: 640px) and (prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/DaikiLevrone/DaikiLevrone/main/assets/metrics-tech-dark-mobile.svg">
+    <source media="(max-width: 640px)" srcset="https://raw.githubusercontent.com/DaikiLevrone/DaikiLevrone/main/assets/metrics-tech-light-mobile.svg">
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/DaikiLevrone/DaikiLevrone/main/assets/metrics-tech-dark.svg">
+    <img alt="GitHub stats and real technology stack for Fabricio Prado" src="https://raw.githubusercontent.com/DaikiLevrone/DaikiLevrone/main/assets/metrics-tech-light.svg" width="100%">
   </picture>
 </div>
 
@@ -36,7 +34,6 @@
 <div align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/DaikiLevrone/DaikiLevrone/output/github-snake-dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/DaikiLevrone/DaikiLevrone/output/github-snake.svg">
     <img alt="Contribution snake animation for DaikiLevrone" src="https://raw.githubusercontent.com/DaikiLevrone/DaikiLevrone/output/github-snake.svg" width="100%">
   </picture>
 </div>
@@ -45,24 +42,42 @@
 
 <div align="center">
   <picture>
+    <source media="(max-width: 640px) and (prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/DaikiLevrone/DaikiLevrone/main/assets/projects-dark-mobile.svg">
+    <source media="(max-width: 640px)" srcset="https://raw.githubusercontent.com/DaikiLevrone/DaikiLevrone/main/assets/projects-light-mobile.svg">
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/DaikiLevrone/DaikiLevrone/main/assets/projects-dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/DaikiLevrone/DaikiLevrone/main/assets/projects-light.svg">
     <img alt="Selected professional repositories by Fabricio Prado" src="https://raw.githubusercontent.com/DaikiLevrone/DaikiLevrone/main/assets/projects-light.svg" width="100%">
   </picture>
 </div>
+
+<p align="center">
+  <a href="https://github.com/DaikiLevrone/SistemaGuiasBoletas">SistemaGuiasBoletas</a>
+  ·
+  <a href="https://github.com/DaikiLevrone/Enkarga">Enkarga</a>
+  ·
+  <a href="https://github.com/DaikiLevrone/TRABAJO-FINAL-BPA">TRABAJO-FINAL-BPA</a>
+  ·
+  <a href="https://github.com/DaikiLevrone/Fitfat-Site-Web">Fitfat-Site-Web</a>
+</p>
 
 <br>
 
 <p align="center">
   <a href="https://github.com/DaikiLevrone">
-    <img alt="GitHub profile" src="https://raw.githubusercontent.com/DaikiLevrone/DaikiLevrone/main/assets/badge-github.svg">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/DaikiLevrone/DaikiLevrone/main/assets/badge-github-dark.svg">
+      <img alt="GitHub profile" src="https://raw.githubusercontent.com/DaikiLevrone/DaikiLevrone/main/assets/badge-github-light.svg" width="190">
+    </picture>
   </a>
-  &nbsp;&nbsp;
   <a href="https://github.com/DaikiLevrone?tab=repositories">
-    <img alt="Public repositories" src="https://raw.githubusercontent.com/DaikiLevrone/DaikiLevrone/main/assets/badge-repositories.svg">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/DaikiLevrone/DaikiLevrone/main/assets/badge-repositories-dark.svg">
+      <img alt="Public repositories" src="https://raw.githubusercontent.com/DaikiLevrone/DaikiLevrone/main/assets/badge-repositories-light.svg" width="190">
+    </picture>
   </a>
-  &nbsp;&nbsp;
   <a href="https://github.com/DaikiLevrone/DaikiLevrone">
-    <img alt="Profile repository" src="https://raw.githubusercontent.com/DaikiLevrone/DaikiLevrone/main/assets/badge-profile-repo.svg">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/DaikiLevrone/DaikiLevrone/main/assets/badge-profile-repo-dark.svg">
+      <img alt="Profile repository" src="https://raw.githubusercontent.com/DaikiLevrone/DaikiLevrone/main/assets/badge-profile-repo-light.svg" width="190">
+    </picture>
   </a>
 </p>

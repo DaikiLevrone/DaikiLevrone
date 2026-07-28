@@ -1,35 +1,37 @@
-<svg width="1180" height="230" viewBox="0 0 1180 230" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
-  <title id="title">DaikiLevrone GitHub contribution streak</title>
-  <desc id="desc">Full-width contribution streak card for Fabricio Prado, GitHub user DaikiLevrone.</desc>
+<svg width="980" height="220" viewBox="0 0 980 220" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">GitHub contribution streak for DaikiLevrone</title>
+  <desc id="desc">Contribution pulse summary for DaikiLevrone using a lavender and violet visual identity.</desc>
   <style>
-    .title{font-family:Consolas,"Liberation Mono",Menlo,monospace;font-size:18px;font-weight:700;fill:#0B1F16}
-    .label{font-family:Consolas,"Liberation Mono",Menlo,monospace;font-size:13px;fill:#4B5563}
-    .num{font-family:Consolas,"Liberation Mono",Menlo,monospace;font-size:48px;font-weight:700;fill:#047857}
-    .small{font-family:Consolas,"Liberation Mono",Menlo,monospace;font-size:12px;fill:#4B5563}
+    .title { font-family: Inter, Segoe UI, Arial, sans-serif; font-size: 34px; font-weight: 800; fill: #4E2FB0; letter-spacing: 0; }
+    .subtitle { font-family: Consolas, "Liberation Mono", Menlo, monospace; font-size: 15px; fill: #5B478E; }
+    .streak-label { font-family: Consolas, "Liberation Mono", Menlo, monospace; font-size: 14px; fill: #5B478E; }
+    .streak-value { font-family: Inter, Segoe UI, Arial, sans-serif; font-size: 37px; font-weight: 900; fill: #4E2FB0; letter-spacing: 0; }
+    .streak-note { font-family: Consolas, "Liberation Mono", Menlo, monospace; font-size: 13px; fill: #4E2FB0; }
   </style>
-  <rect width="1180" height="230" rx="8" fill="#F8FAFC"/>
-  <rect x="1" y="1" width="1178" height="228" rx="7" stroke="#A7F3D0" stroke-width="2"/>
-  <text x="40" y="42" class="title">CONTRIBUTION.STREAK / DaikiLevrone</text>
-  <text x="40" y="66" class="small">Generated from public GitHub contribution data - 2026-07-28</text>
-  <g>
-    <rect x="64" y="92" width="284" height="94" rx="8" fill="#FFFFFF" stroke="#A7F3D0"/>
-    <text x="92" y="126" class="label">CURRENT STREAK</text>
-    <text x="92" y="171" class="num">1</text>
-    <text x="150" y="169" class="label">day</text>
-  </g>
-  <g>
-    <rect x="448" y="92" width="284" height="94" rx="8" fill="#FFFFFF" stroke="#A7F3D0"/>
-    <text x="476" y="126" class="label">LONGEST STREAK</text>
-    <text x="476" y="171" class="num">2</text>
-    <text x="534" y="169" class="label">days</text>
-  </g>
-  <g>
-    <rect x="832" y="92" width="284" height="94" rx="8" fill="#FFFFFF" stroke="#A7F3D0"/>
-    <text x="860" y="126" class="label">TOTAL CONTRIBUTIONS</text>
-    <text x="860" y="171" class="num">25</text>
-    <text x="950" y="169" class="label">calendar</text>
-  </g>
-  <path d="M40 202H1140" stroke="#047857" stroke-opacity=".35"/>
-  <circle cx="40" cy="202" r="4" fill="#047857"/>
-  <circle cx="1140" cy="202" r="4" fill="#059669"/>
+
+  <defs>
+    <linearGradient id="streak-light-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#E7DFF7" stop-opacity="0.12" />
+      <stop offset="48%" stop-color="#A48AE0" stop-opacity="0.22">
+        <animate attributeName="stop-opacity" values="0.12;0.31;0.12" dur="7.5s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="100%" stop-color="#4E2FB0" stop-opacity="0.28" />
+    </linearGradient>
+    <linearGradient id="streak-light-bar" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#4E2FB0" />
+      <stop offset="45%" stop-color="#C6B4EE" />
+      <stop offset="100%" stop-color="#7B5FD1" />
+    </linearGradient>
+    <filter id="streak-light-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#4E2FB0" flood-opacity="0.15" />
+    </filter>
+  </defs>
+  <rect width="980" height="220" fill="#E7DFF7" />
+  <rect x="18" y="18" width="944" height="184" rx="24" fill="url(#streak-light-bg)" stroke="#C6B4EE" stroke-opacity="0.58" />
+  <text x="42" y="66" class="title">contribution.pulse</text>
+  <text x="44" y="91" class="subtitle">Public GitHub activity, refreshed by workflow.</text>
+  <rect x="42" y="102" width="268" height="70" rx="16" fill="#FFFFFF" stroke="#C6B4EE" stroke-opacity="0.62" /><text x="60" y="132" class="streak-label">current streak</text><text x="194" y="149" class="streak-value">1</text><text x="252" y="149" class="streak-note">day</text><rect x="342" y="102" width="268" height="70" rx="16" fill="#FFFFFF" stroke="#C6B4EE" stroke-opacity="0.62" /><text x="360" y="132" class="streak-label">contribs</text><text x="494" y="149" class="streak-value">25</text><text x="552" y="149" class="streak-note">calendar</text><rect x="642" y="102" width="268" height="70" rx="16" fill="#FFFFFF" stroke="#C6B4EE" stroke-opacity="0.62" /><text x="660" y="132" class="streak-label">created repos</text><text x="794" y="149" class="streak-value">6</text><text x="852" y="149" class="streak-note">total</text>
+  <rect x="42" y="188" width="250" height="4" rx="2" fill="url(#streak-light-bar)">
+    <animate attributeName="width" values="130;250;190;250" dur="7s" repeatCount="indefinite" />
+  </rect>
 </svg>

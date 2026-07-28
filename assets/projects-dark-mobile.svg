@@ -1,0 +1,84 @@
+<svg width="430" height="1450" viewBox="0 0 430 1450" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Featured mobile projects by Fabricio Prado</title>
+  <desc id="desc">Mobile stacked cards for four selected public repositories by Fabricio Prado.</desc>
+  <style>
+    .title { font-family: Inter, Segoe UI, Arial, sans-serif; font-size: 31px; font-weight: 800; fill: #E7DFF7; letter-spacing: 0; }
+    .subtitle { font-family: Consolas, "Liberation Mono", Menlo, monospace; font-size: 13px; fill: #C6B4EE; }
+    .name { font-family: Inter, Segoe UI, Arial, sans-serif; font-size: 20px; font-weight: 800; fill: #E7DFF7; letter-spacing: 0; }
+    .category { font-family: Consolas, "Liberation Mono", Menlo, monospace; font-size: 13px; fill: #C6B4EE; }
+    .body { font-family: Segoe UI, Arial, sans-serif; font-size: 15px; fill: #C6B4EE; }
+    .chip-mobile { font-family: Consolas, "Liberation Mono", Menlo, monospace; font-size: 12px; fill: #E7DFF7; }
+    .link { font-family: Consolas, "Liberation Mono", Menlo, monospace; font-size: 12px; fill: #C6B4EE; }
+  </style>
+
+  <defs>
+    <linearGradient id="projects-mobile-dark-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#E7DFF7" stop-opacity="0.13" />
+      <stop offset="52%" stop-color="#A48AE0" stop-opacity="0.18">
+        <animate attributeName="stop-opacity" values="0.10;0.28;0.10" dur="8s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="100%" stop-color="#4E2FB0" stop-opacity="0.26" />
+    </linearGradient>
+    <linearGradient id="projects-mobile-dark-stroke" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#4E2FB0" />
+      <stop offset="50%" stop-color="#C6B4EE" />
+      <stop offset="100%" stop-color="#7B5FD1" />
+    </linearGradient>
+    <filter id="projects-mobile-dark-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#C6B4EE" flood-opacity="0.16" />
+    </filter>
+  </defs>
+  <rect width="430" height="1450" fill="#110927" />
+  <rect x="14" y="16" width="402" height="1418" rx="24" fill="url(#projects-mobile-dark-bg)" stroke="#7B5FD1" stroke-opacity="0.58" />
+  <text x="22" y="62" class="title">selected.systems</text>
+  <text x="24" y="92" class="subtitle">Real public repositories, readable on mobile.</text>
+
+  <g filter="url(#projects-mobile-dark-shadow)">
+    <rect x="22" y="118" width="386" height="292" rx="18" fill="#201144" stroke="url(#projects-mobile-dark-stroke)" stroke-width="1.3" stroke-opacity="0.76">
+      <animate attributeName="stroke-opacity" values="0.46;1;0.46" dur="7.5s" repeatCount="indefinite" />
+    </rect>
+    <rect x="22" y="118" width="386" height="70" rx="18" fill="#281753" />
+    <rect x="22" y="170" width="386" height="18" fill="#281753" />
+    <text x="44" y="160" class="name">SistemaGuiasBoletas</text>
+    <text x="44" y="198" class="category">Desktop automation</text>
+    <text x="44" y="220" class="body">Windows desktop system that converts</text><text x="44" y="241" class="body">business TXT files into professional</text><text x="44" y="262" class="body">PDF guides and payslips, keeps local</text><text x="44" y="283" class="body">history, manages workers, sends SMTP</text><text x="44" y="304" class="body">email and opens WhatsApp Web handoff</text>
+    <rect x="44" y="334" width="72" height="32" rx="16" fill="#2C1A5E" stroke="#7B5FD1" stroke-opacity="0.62" /><text x="61" y="355" class="chip-mobile">C#</text><rect x="125" y="334" width="150" height="32" rx="16" fill="#2C1A5E" stroke="#7B5FD1" stroke-opacity="0.62" /><text x="142" y="355" class="chip-mobile">Windows Forms</text>
+    <text x="44" y="392" class="link">github.com/DaikiLevrone/SistemaGuiasBoletas</text>
+  </g>
+  <g filter="url(#projects-mobile-dark-shadow)">
+    <rect x="22" y="442" width="386" height="292" rx="18" fill="#201144" stroke="url(#projects-mobile-dark-stroke)" stroke-width="1.3" stroke-opacity="0.76">
+      <animate attributeName="stroke-opacity" values="0.46;1;0.46" dur="7.9s" repeatCount="indefinite" />
+    </rect>
+    <rect x="22" y="442" width="386" height="70" rx="18" fill="#281753" />
+    <rect x="22" y="494" width="386" height="18" fill="#281753" />
+    <text x="44" y="484" class="name">Enkarga</text>
+    <text x="44" y="522" class="category">Business web portal</text>
+    <text x="44" y="544" class="body">Operational web portal for a courier</text><text x="44" y="565" class="body">company, connecting customers, staff,</text><text x="44" y="586" class="body">transport, guide tracking, invoicing,</text><text x="44" y="607" class="body">deposits and accounting modules.</text>
+    <rect x="44" y="658" width="72" height="32" rx="16" fill="#2C1A5E" stroke="#7B5FD1" stroke-opacity="0.62" /><text x="61" y="679" class="chip-mobile">PHP</text><rect x="125" y="658" width="135" height="32" rx="16" fill="#2C1A5E" stroke="#7B5FD1" stroke-opacity="0.62" /><text x="142" y="679" class="chip-mobile">JavaScript</text><rect x="269" y="658" width="75" height="32" rx="16" fill="#2C1A5E" stroke="#7B5FD1" stroke-opacity="0.62" /><text x="286" y="679" class="chip-mobile">HTML</text>
+    <text x="44" y="716" class="link">github.com/DaikiLevrone/Enkarga</text>
+  </g>
+  <g filter="url(#projects-mobile-dark-shadow)">
+    <rect x="22" y="766" width="386" height="292" rx="18" fill="#201144" stroke="url(#projects-mobile-dark-stroke)" stroke-width="1.3" stroke-opacity="0.76">
+      <animate attributeName="stroke-opacity" values="0.46;1;0.46" dur="8.3s" repeatCount="indefinite" />
+    </rect>
+    <rect x="22" y="766" width="386" height="70" rx="18" fill="#281753" />
+    <rect x="22" y="818" width="386" height="18" fill="#281753" />
+    <text x="44" y="808" class="name">TRABAJO-FINAL-BPA</text>
+    <text x="44" y="846" class="category">Data and ML app</text>
+    <text x="44" y="868" class="body">Streamlit app that forecasts hotel</text><text x="44" y="889" class="body">occupancy in Peru by department and</text><text x="44" y="910" class="body">turns model output into</text><text x="44" y="931" class="body">travel-planning recommendations.</text>
+    <rect x="44" y="982" width="95" height="32" rx="16" fill="#2C1A5E" stroke="#7B5FD1" stroke-opacity="0.62" /><text x="61" y="1003" class="chip-mobile">Python</text><rect x="148" y="982" width="125" height="32" rx="16" fill="#2C1A5E" stroke="#7B5FD1" stroke-opacity="0.62" /><text x="165" y="1003" class="chip-mobile">Streamlit</text><rect x="282" y="982" width="95" height="32" rx="16" fill="#2C1A5E" stroke="#7B5FD1" stroke-opacity="0.62" /><text x="299" y="1003" class="chip-mobile">Pandas</text>
+    <text x="44" y="1040" class="link">github.com/DaikiLevrone/TRABAJO-FINAL-BPA</text>
+  </g>
+  <g filter="url(#projects-mobile-dark-shadow)">
+    <rect x="22" y="1090" width="386" height="292" rx="18" fill="#201144" stroke="url(#projects-mobile-dark-stroke)" stroke-width="1.3" stroke-opacity="0.76">
+      <animate attributeName="stroke-opacity" values="0.46;1;0.46" dur="8.7s" repeatCount="indefinite" />
+    </rect>
+    <rect x="22" y="1090" width="386" height="70" rx="18" fill="#281753" />
+    <rect x="22" y="1142" width="386" height="18" fill="#281753" />
+    <text x="44" y="1132" class="name">Fitfat-Site-Web</text>
+    <text x="44" y="1170" class="category">Health and fitness web</text>
+    <text x="44" y="1192" class="body">Responsive fitness and nutrition</text><text x="44" y="1213" class="body">website with registration, plan pages,</text><text x="44" y="1234" class="body">password recovery flow, PHPMailer</text><text x="44" y="1255" class="body">integration and structured content for</text><text x="44" y="1276" class="body">food and training routines.</text>
+    <rect x="44" y="1306" width="75" height="32" rx="16" fill="#2C1A5E" stroke="#7B5FD1" stroke-opacity="0.62" /><text x="61" y="1327" class="chip-mobile">HTML</text><rect x="128" y="1306" width="72" height="32" rx="16" fill="#2C1A5E" stroke="#7B5FD1" stroke-opacity="0.62" /><text x="145" y="1327" class="chip-mobile">CSS</text><rect x="209" y="1306" width="135" height="32" rx="16" fill="#2C1A5E" stroke="#7B5FD1" stroke-opacity="0.62" /><text x="226" y="1327" class="chip-mobile">JavaScript</text>
+    <text x="44" y="1364" class="link">github.com/DaikiLevrone/Fitfat-Site-Web</text>
+  </g>
+</svg>

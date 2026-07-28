@@ -1,0 +1,29 @@
+<svg width="210" height="54" viewBox="0 0 210 54" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Profile Repo badge</title>
+  <desc id="desc">Animated profile badge linking to Profile Repo.</desc>
+
+  <defs>
+    <linearGradient id="badge-light-profile-repo-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#E7DFF7" stop-opacity="0.12" />
+      <stop offset="48%" stop-color="#A48AE0" stop-opacity="0.22">
+        <animate attributeName="stop-opacity" values="0.12;0.31;0.12" dur="7.5s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="100%" stop-color="#4E2FB0" stop-opacity="0.28" />
+    </linearGradient>
+    <linearGradient id="badge-light-profile-repo-bar" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#4E2FB0" />
+      <stop offset="45%" stop-color="#C6B4EE" />
+      <stop offset="100%" stop-color="#7B5FD1" />
+    </linearGradient>
+    <filter id="badge-light-profile-repo-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#4E2FB0" flood-opacity="0.15" />
+    </filter>
+  </defs>
+  <rect x="2" y="2" width="206" height="50" rx="18" fill="#FFFFFF" stroke="url(#badge-light-profile-repo-bar)" stroke-width="1.5">
+    <animate attributeName="stroke-opacity" values="0.45;1;0.45" dur="5.8s" repeatCount="indefinite" />
+  </rect>
+  <circle cx="31" cy="27" r="9" fill="#4E2FB0">
+    <animate attributeName="r" values="8;10;8" dur="4.5s" repeatCount="indefinite" />
+  </circle>
+  <text x="50" y="33" font-family="Consolas, Liberation Mono, Menlo, monospace" font-size="15" font-weight="700" fill="#4E2FB0">PR Profile Repo</text>
+</svg>

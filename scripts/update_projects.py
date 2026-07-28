@@ -22,6 +22,7 @@ ROOT = Path(__file__).resolve().parents[1]
 PROJECTS_FILE = ROOT / "projects.json"
 README_FILE = ROOT / "README.md"
 API = "https://api.github.com"
+GRAPHQL_API = "https://api.github.com/graphql"
 
 
 def request_json(url: str) -> dict:
@@ -36,6 +37,27 @@ def request_json(url: str) -> dict:
     req = urllib.request.Request(url, headers=headers)
     with urllib.request.urlopen(req, timeout=20) as res:
         return json.loads(res.read().decode("utf-8"))
+
+
+def request_graphql(query: str, variables: dict) -> dict | None:
+    token = os.environ.get("GITHUB_TOKEN")
+    if not token:
+        return None
+    payload = json.dumps({"query": query, "variables": variables}).encode("utf-8")
+    headers = {
+        "Accept": "application/vnd.github+json",
+        "Authorization": f"Bearer {token}",
+        "Content-Type": "application/json",
+        "User-Agent": "DaikiLevrone-profile-refresh",
+        "X-GitHub-Api-Version": "2022-11-28",
+    }
+    req = urllib.request.Request(GRAPHQL_API, data=payload, headers=headers, method="POST")
+    with urllib.request.urlopen(req, timeout=20) as res:
+        data = json.loads(res.read().decode("utf-8"))
+    if data.get("errors"):
+        print(f"warning: GraphQL stats refresh failed: {data['errors']}", file=sys.stderr)
+        return None
+    return data.get("data")
 
 
 def check_url(url: str | None) -> bool:
@@ -70,6 +92,34 @@ def refresh_project(project: dict) -> dict:
     else:
         project["demoNote"] = "No public deployment or GitHub Pages site was verified."
     return project
+
+
+def refresh_profile_stats(data: dict) -> None:
+    owner = data.get("profile", {}).get("owner", "DaikiLevrone")
+    query = """
+    query($login: String!) {
+      user(login: $login) {
+        repositories(first: 100, ownerAffiliations: OWNER, privacy: PUBLIC) {
+          totalCount
+        }
+        contributionsCollection {
+          contributionCalendar { totalContributions }
+          totalCommitContributions
+          totalRepositoryContributions
+        }
+      }
+    }
+    """
+    result = request_graphql(query, {"login": owner})
+    user = result.get("user") if result else None
+    if not user:
+        return
+    data.setdefault("profile", {}).setdefault("stats", {})
+    stats = data["profile"]["stats"]
+    stats["publicRepositories"] = user["repositories"]["totalCount"]
+    stats["contributions"] = user["contributionsCollection"]["contributionCalendar"]["totalContributions"]
+    stats["commits"] = user["contributionsCollection"]["totalCommitContributions"]
+    stats["createdRepositories"] = user["contributionsCollection"]["totalRepositoryContributions"]
 
 
 def project_markdown(projects: list[dict]) -> str:
@@ -120,6 +170,7 @@ def main() -> int:
                 print(f"warning: could not refresh {project['repo']}: HTTP {exc.code}", file=sys.stderr)
                 refreshed.append(project)
         data["projects"] = refreshed
+        refresh_profile_stats(data)
         data["profile"]["updatedAt"] = dt.datetime.now(dt.UTC).date().isoformat()
 
     readme = README_FILE.read_text(encoding="utf-8")
