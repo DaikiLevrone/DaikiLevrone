@@ -53,7 +53,7 @@
   <a href="https://github.com/DaikiLevrone/SistemaGuiasBoletas">SistemaGuiasBoletas</a>
   ·
   <a href="https://github.com/DaikiLevrone/Enkarga">Enkarga</a>
-  ·
+  <br>
   <a href="https://github.com/DaikiLevrone/TRABAJO-FINAL-BPA">TRABAJO-FINAL-BPA</a>
   ·
   <a href="https://github.com/DaikiLevrone/Fitfat-Site-Web">Fitfat-Site-Web</a>
