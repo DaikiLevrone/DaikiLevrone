@@ -1,0 +1,41 @@
+name: Update Profile Projects
+
+on:
+  schedule:
+    - cron: "23 7 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-profile-projects
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+
+      - name: Refresh profile assets
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python scripts/update_projects.py --write
+          python scripts/generate_project_panel.py --no-preview
+          python scripts/validate_profile.py
+
+      - name: Commit refreshed files
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add README.md projects.json assets/projects-dark.svg assets/projects-light.svg
+            git commit -m "chore: refresh profile projects"
+            git push
+          else
+            echo "No profile project changes."
+          fi
