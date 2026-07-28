@@ -1,0 +1,11 @@
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+tmp/
+drive-download-*/
+assets/profile-photo.*
+__pycache__/
+*.pyc
