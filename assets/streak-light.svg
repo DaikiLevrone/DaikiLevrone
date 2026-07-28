@@ -1,0 +1,35 @@
+<svg width="1180" height="230" viewBox="0 0 1180 230" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">DaikiLevrone GitHub contribution streak</title>
+  <desc id="desc">Full-width contribution streak card for Fabricio Prado, GitHub user DaikiLevrone.</desc>
+  <style>
+    .title{font-family:Consolas,"Liberation Mono",Menlo,monospace;font-size:18px;font-weight:700;fill:#0B1F16}
+    .label{font-family:Consolas,"Liberation Mono",Menlo,monospace;font-size:13px;fill:#4B5563}
+    .num{font-family:Consolas,"Liberation Mono",Menlo,monospace;font-size:48px;font-weight:700;fill:#047857}
+    .small{font-family:Consolas,"Liberation Mono",Menlo,monospace;font-size:12px;fill:#4B5563}
+  </style>
+  <rect width="1180" height="230" rx="8" fill="#F8FAFC"/>
+  <rect x="1" y="1" width="1178" height="228" rx="7" stroke="#A7F3D0" stroke-width="2"/>
+  <text x="40" y="42" class="title">CONTRIBUTION.STREAK / DaikiLevrone</text>
+  <text x="40" y="66" class="small">Generated from public GitHub contribution data - 2026-07-28</text>
+  <g>
+    <rect x="64" y="92" width="284" height="94" rx="8" fill="#FFFFFF" stroke="#A7F3D0"/>
+    <text x="92" y="126" class="label">CURRENT STREAK</text>
+    <text x="92" y="171" class="num">1</text>
+    <text x="150" y="169" class="label">day</text>
+  </g>
+  <g>
+    <rect x="448" y="92" width="284" height="94" rx="8" fill="#FFFFFF" stroke="#A7F3D0"/>
+    <text x="476" y="126" class="label">LONGEST STREAK</text>
+    <text x="476" y="171" class="num">2</text>
+    <text x="534" y="169" class="label">days</text>
+  </g>
+  <g>
+    <rect x="832" y="92" width="284" height="94" rx="8" fill="#FFFFFF" stroke="#A7F3D0"/>
+    <text x="860" y="126" class="label">TOTAL CONTRIBUTIONS</text>
+    <text x="860" y="171" class="num">25</text>
+    <text x="950" y="169" class="label">calendar</text>
+  </g>
+  <path d="M40 202H1140" stroke="#047857" stroke-opacity=".35"/>
+  <circle cx="40" cy="202" r="4" fill="#047857"/>
+  <circle cx="1140" cy="202" r="4" fill="#059669"/>
+</svg>

@@ -10,9 +10,9 @@
 
 <div align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://streak-stats.demolab.com?user=DaikiLevrone&hide_border=true&background=06110D&stroke=1E3A2D&ring=10B981&fire=34D399&currStreakLabel=10B981&sideLabels=9CA3AF&currStreakNum=F8FAFC&sideNums=F8FAFC&dates=9CA3AF">
-    <source media="(prefers-color-scheme: light)" srcset="https://streak-stats.demolab.com?user=DaikiLevrone&hide_border=true&background=F8FAFC&stroke=A7F3D0&ring=047857&fire=059669&currStreakLabel=047857&sideLabels=4B5563&currStreakNum=0B1F16&sideNums=0B1F16&dates=4B5563">
-    <img alt="GitHub contribution streak for DaikiLevrone" src="https://streak-stats.demolab.com?user=DaikiLevrone&hide_border=true&background=F8FAFC&stroke=A7F3D0&ring=047857&fire=059669&currStreakLabel=047857&sideLabels=4B5563&currStreakNum=0B1F16&sideNums=0B1F16&dates=4B5563" width="100%">
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/DaikiLevrone/DaikiLevrone/main/assets/streak-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/DaikiLevrone/DaikiLevrone/main/assets/streak-light.svg">
+    <img alt="GitHub contribution streak for DaikiLevrone" src="https://raw.githubusercontent.com/DaikiLevrone/DaikiLevrone/main/assets/streak-light.svg" width="100%">
   </picture>
 </div>
 
