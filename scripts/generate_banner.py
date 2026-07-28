@@ -2,8 +2,7 @@
 
 If assets/profile-photo.jpg, .jpeg, .png or .webp exists, the portrait area is
 generated from that image with Pillow and NumPy. Without a photo, the script
-keeps a neutral point map and a clear PHOTO PENDING label. It never invents a
-face.
+keeps a neutral point map. It never invents a face.
 """
 
 from __future__ import annotations
@@ -226,12 +225,12 @@ def render_svg(theme_name: str, photo: Path | None) -> str:
             f'</path>'
         )
 
-    photo_label = "POINT PORTRAIT" if photo else "PHOTO PENDING"
-    photo_hint = "assets/profile-photo.jpg" if not photo else photo.as_posix().replace(str(ROOT).replace("\\", "/") + "/", "")
+    photo_label = "POINT PORTRAIT" if photo else "SIGNAL MAP"
+    photo_hint = "DAIKILEVRONE // AVATAR FIELD" if photo else "DAIKILEVRONE // VISUAL FIELD"
 
     return f'''<svg width="{WIDTH}" height="{HEIGHT}" viewBox="0 0 {WIDTH} {HEIGHT}" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
   <title id="title">Fabricio Prado - GitHub profile terminal banner</title>
-  <desc id="desc">Animated terminal style banner for DaikiLevrone, using a dark green, emerald, white and gray identity. The portrait area uses a point map and does not invent a face when no photo exists.</desc>
+  <desc id="desc">Animated terminal style banner for Fabricio Prado, GitHub user DaikiLevrone, using a dark green, emerald, white and gray identity.</desc>
   <style>
     .mono {{ font-family: Consolas, "Liberation Mono", Menlo, monospace; }}
     .row {{ font-family: Consolas, "Liberation Mono", Menlo, monospace; font-size: 14px; fill: {theme["soft"]}; }}
@@ -291,7 +290,7 @@ def draw_png_preview(theme_name: str, photo: Path | None, out: Path) -> None:
     draw.rounded_rectangle((58, 116, 422, 498), radius=10, fill=theme["panel"], outline=theme["line"], width=1)
     draw.rounded_rectangle((462, 116, 1088, 498), radius=10, fill=theme["panel"], outline=theme["line"], width=1)
     draw.text((144, 48), "profile.sh --live", fill=theme["text"])
-    draw.text((78, 126), "VISUAL.MAP / " + ("POINT PORTRAIT" if photo else "PHOTO PENDING"), fill=theme["accent2"])
+    draw.text((78, 126), "VISUAL.MAP / " + ("POINT PORTRAIT" if photo else "SIGNAL MAP"), fill=theme["accent2"])
     for x, y, opacity in (photo_points(photo, theme_name) if photo else placeholder_points()):
         color = theme["accent2"] if opacity > 0.65 else theme["accent"]
         draw.rectangle((x, y, x + 2, y + 2), fill=color)
@@ -326,7 +325,7 @@ def main() -> None:
     if photo:
         print(f"Generated banners from {photo}")
     else:
-        print("Generated banners without portrait. Pending photo: assets/profile-photo.jpg")
+        print("Generated banners without portrait.")
 
 
 if __name__ == "__main__":

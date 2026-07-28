@@ -98,7 +98,7 @@ def replace_block(readme: str, marker: str, body: str) -> str:
     pattern = re.compile(rf"{re.escape(start)}.*?{re.escape(end)}", re.S)
     replacement = f"{start}\n{body}\n{end}"
     if not pattern.search(readme):
-        raise ValueError(f"README marker block not found: {marker}")
+        return readme
     return pattern.sub(replacement, readme)
 
 

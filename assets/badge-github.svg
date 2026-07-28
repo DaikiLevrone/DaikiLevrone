@@ -1,0 +1,8 @@
+<svg width="162" height="34" viewBox="0 0 162 34" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">GitHub badge</title>
+  <desc id="desc">Centered badge linking to DaikiLevrone on GitHub.</desc>
+  <rect width="162" height="34" rx="4" fill="#06110D"/>
+  <rect x="1" y="1" width="160" height="32" rx="3" stroke="#10B981" stroke-opacity=".65"/>
+  <circle cx="23" cy="17" r="8" fill="#10B981"/>
+  <text x="42" y="22" fill="#F8FAFC" font-family="Consolas, Liberation Mono, Menlo, monospace" font-size="14" font-weight="700">GITHUB</text>
+</svg>

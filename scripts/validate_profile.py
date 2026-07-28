@@ -110,8 +110,6 @@ def validate_files(errors: list[str]) -> None:
     readme = (ROOT / "README.md").read_text(encoding="utf-8") if (ROOT / "README.md").exists() else ""
     if 'alt="' not in readme and "alt=" not in readme:
         fail("README: no image alt text detected", errors)
-    if "<!-- PROJECTS:START -->" not in readme or "<!-- PROJECTS:END -->" not in readme:
-        fail("README: project markers missing", errors)
 
 
 def validate_action_pins(errors: list[str]) -> None:

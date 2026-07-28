@@ -1,0 +1,8 @@
+<svg width="210" height="34" viewBox="0 0 210 34" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Profile repository badge</title>
+  <desc id="desc">Centered badge linking to the DaikiLevrone profile repository.</desc>
+  <rect width="210" height="34" rx="4" fill="#06110D"/>
+  <rect x="1" y="1" width="208" height="32" rx="3" stroke="#10B981" stroke-opacity=".65"/>
+  <path d="M17 10h14v14H17zM20 13h8v2h-8zM20 17h8v2h-8z" fill="#10B981"/>
+  <text x="42" y="22" fill="#F8FAFC" font-family="Consolas, Liberation Mono, Menlo, monospace" font-size="14" font-weight="700">PROFILE REPO</text>
+</svg>
