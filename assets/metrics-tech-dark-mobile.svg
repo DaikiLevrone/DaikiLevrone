@@ -51,7 +51,7 @@
         <animate attributeName="stroke-opacity" values="0.46;0.9;0.46" dur="6.25s" repeatCount="indefinite" />
       </rect>
       <text x="252" y="166" class="metric-label">Contribs</text>
-      <text x="252" y="214" class="metric-value">25</text>
+      <text x="252" y="214" class="metric-value">16</text>
       <text x="336" y="214" class="metric-note">year</text>
       <rect x="252" y="231" width="88" height="5" rx="3" fill="url(#metrics-mobile-dark-bar)">
         <animate attributeName="width" values="36;88;68;88" dur="6.8s" repeatCount="indefinite" />
@@ -62,7 +62,7 @@
         <animate attributeName="stroke-opacity" values="0.46;0.9;0.46" dur="6.50s" repeatCount="indefinite" />
       </rect>
       <text x="52" y="308" class="metric-label">Commits</text>
-      <text x="52" y="356" class="metric-value">19</text>
+      <text x="52" y="356" class="metric-value">13</text>
       <text x="136" y="356" class="metric-note">tracked</text>
       <rect x="52" y="373" width="88" height="5" rx="3" fill="url(#metrics-mobile-dark-bar)">
         <animate attributeName="width" values="36;88;68;88" dur="7.1s" repeatCount="indefinite" />

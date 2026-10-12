@@ -1,12 +1,12 @@
 {
   "profile": {
     "owner": "DaikiLevrone",
-    "updatedAt": "2026-09-28",
+    "updatedAt": "2026-10-12",
     "stats": {
       "publicRepositories": 11,
-      "contributions": 25,
-      "commits": 19,
-      "createdRepositories": 6
+      "contributions": 16,
+      "commits": 13,
+      "createdRepositories": 3
     },
     "technologyPolicy": "Use the declared professional stack plus public repository evidence; exclude auxiliary generated language noise such as Hack, Gherkin, Less and vendored packages.",
     "selectionCriteria": [
